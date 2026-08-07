@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — ONJI LAB</title>
+<meta name="description" content="ONJI LAB 소개" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="about">
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">ONJI<span>.</span>LAB</a>
+    <nav class="nav__menu">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="about.html" class="nav__link is-active">About</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+    </nav>
+    <button class="nav__toggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="container about">
+    <div class="about__grid">
+      <div class="about__portrait">
+        <!-- Simple line-art dog character on butter background -->
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- headphone band -->
+          <path d="M55 70 C55 30, 145 30, 145 70" stroke="#111111" stroke-width="10" stroke-linecap="round"/>
+          <!-- left ear -->
+          <path d="M62 55 C40 55, 30 75, 40 92 C48 104, 66 100, 68 84" stroke="#111111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- right ear -->
+          <path d="M138 55 C160 55, 170 75, 160 92 C152 104, 134 100, 132 84" stroke="#111111" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- left headphone cup -->
+          <circle cx="52" cy="92" r="17" fill="#111111"/>
+          <!-- right headphone cup -->
+          <circle cx="148" cy="92" r="17" fill="#111111"/>
+          <!-- head shape -->
+          <path d="M68 76 C68 55, 84 44, 100 44 C116 44, 132 55, 132 76 C132 100, 122 122, 100 130 C78 122, 68 100, 68 76 Z" fill="#ffffff" stroke="#111111" stroke-width="6"/>
+          <!-- sunglasses -->
+          <rect x="72" y="78" width="26" height="18" rx="9" fill="#111111"/>
+          <rect x="102" y="78" width="26" height="18" rx="9" fill="#111111"/>
+          <rect x="96" y="84" width="8" height="5" fill="#111111"/>
+          <!-- nose -->
+          <ellipse cx="100" cy="112" rx="7" ry="5" fill="#111111"/>
+          <!-- mouth -->
+          <path d="M84 120 C90 128, 110 128, 116 120" stroke="#111111" stroke-width="5" stroke-linecap="round" fill="none"/>
+          <!-- raised paw -->
+          <path d="M62 108 C48 96, 40 84, 44 70 C46 62, 56 60, 60 66 C64 72, 58 80, 54 86 C50 92, 56 104, 66 112 Z" fill="#ffffff" stroke="#111111" stroke-width="6" stroke-linejoin="round"/>
+          <!-- body / shirt -->
+          <path d="M56 130 C70 118, 130 118, 146 132 L160 200 L44 200 Z" fill="#111111"/>
+        </svg>
+      </div>
+
+      <div class="about__content">
+        <p class="about__eyebrow">About Onji Lab</p>
+        <h1 class="about__title">이미지와 영상으로<br />브랜드의 무드를 짓는,<br />ONJI LAB입니다.</h1>
+        <p class="about__text">
+          ONJI LAB은 제품, 프로모션, 모션그래픽, 애니메이션까지—
+          비주얼 콘텐츠 전 영역을 아우르는 크리에이티브 스튜디오입니다.
+          블랙 앤 화이트를 기본 톤으로, 절제된 포인트 컬러 하나로
+          브랜드가 가진 고유한 온도를 전달하는 것을 목표로 합니다.
+        </p>
+        <p class="about__text">
+          작은 오브젝트 하나부터 시퀀스 전체의 리듬까지,
+          디테일을 놓치지 않는 태도로 작업합니다.
+          매 프로젝트마다 클라이언트의 이야기를 가장 정확한
+          비주얼 언어로 번역하는 것—그것이 저희의 일입니다.
+        </p>
+
+        <div class="about__stats">
+          <div>
+            <div class="about__stat-num">40+</div>
+            <div class="about__stat-label">Completed Projects</div>
+          </div>
+          <div>
+            <div class="about__stat-num">12</div>
+            <div class="about__stat-label">Brand Partners</div>
+          </div>
+          <div>
+            <div class="about__stat-num">4</div>
+            <div class="about__stat-label">Content Categories</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>&copy; 2024 <span>ONJI LAB</span>. All rights reserved.</span>
+    <span>Image &amp; Motion Content Studio</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-client.js"></script>
+<script src="script.js"></script>
+<script src="data-loader.js"></script>
+</body>
+</html>

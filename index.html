@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ONJI LAB — Portfolio</title>
+<meta name="description" content="ONJI LAB의 이미지 · 영상 콘텐츠 포트폴리오" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="home">
+
+<header class="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">ONJI<span>.</span>LAB</a>
+    <nav class="nav__menu">
+      <a href="index.html" class="nav__link is-active">Home</a>
+      <a href="about.html" class="nav__link">About</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+    </nav>
+    <button class="nav__toggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero__title">ONJI LAB</h1>
+      <p class="hero__subtitle">Visual &amp; Motion Content Studio — Image / Video Works</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="filter-bar">
+      <button class="filter-pill is-active" data-category="All">ALL</button>
+      <button class="filter-pill" data-category="Product">Product</button>
+      <button class="filter-pill" data-category="Promotion">Promotion</button>
+      <button class="filter-pill" data-category="Motion Graphic">Motion Graphic</button>
+      <button class="filter-pill" data-category="Animation">Animation</button>
+    </div>
+
+    <div class="gallery"><!-- rendered by script.js --></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>&copy; 2024 <span>ONJI LAB</span>. All rights reserved.</span>
+    <span>Image &amp; Motion Content Studio</span>
+  </div>
+</footer>
+
+<!-- Project Detail Overlay -->
+<div class="detail">
+  <div class="detail__bar">
+    <button class="detail__back">&larr; Back to Work</button>
+    <button class="detail__close" aria-label="닫기">&times;</button>
+  </div>
+  <div class="detail__body">
+    <div class="detail__info">
+      <p class="detail__eyebrow">Category</p>
+      <h2 class="detail__name">Project Title</h2>
+      <div class="detail__divider"></div>
+      <p class="detail__desc">Project description.</p>
+      <div class="detail__meta">
+        <div class="detail__meta-row">
+          <span class="detail__meta-label">Client</span>
+          <span class="detail__meta-value" data-meta="client">—</span>
+        </div>
+        <div class="detail__meta-row">
+          <span class="detail__meta-label">Year</span>
+          <span class="detail__meta-value" data-meta="year">—</span>
+        </div>
+        <div class="detail__meta-row">
+          <span class="detail__meta-label">Role</span>
+          <span class="detail__meta-value" data-meta="role">—</span>
+        </div>
+      </div>
+    </div>
+    <div class="detail__gallery"><!-- rendered by script.js --></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="supabase-client.js"></script>
+<script src="projects-data.js"></script>
+<script src="script.js"></script>
+<script src="data-loader.js"></script>
+</body>
+</html>
