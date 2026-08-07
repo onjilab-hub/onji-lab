@@ -117,7 +117,7 @@ function openDetail(id) {
 
   overlay.querySelector(".detail__eyebrow").textContent = project.category;
   overlay.querySelector(".detail__name").textContent = project.title;
-  overlay.querySelector(".detail__desc").textContent = project.desc;
+  overlay.querySelector(".detail__desc").innerHTML = (project.desc || "").replace(/\n/g, "<br>");
   overlay.querySelector('[data-meta="client"]').textContent = project.client;
   overlay.querySelector('[data-meta="year"]').textContent = project.year;
   overlay.querySelector('[data-meta="role"]').textContent = project.role;
