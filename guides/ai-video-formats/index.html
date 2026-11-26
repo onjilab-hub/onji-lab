@@ -97,10 +97,14 @@ figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
 .dl{display:inline-block;font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--soft);color:var(--mute)}
 .dl.hot{background:var(--hot);color:var(--hot-ink)}.dl.end{background:#eee;color:#999;text-decoration:line-through}
 .meta .dl{font-size:13px}.codelab{font-size:13px;font-weight:700;color:var(--mute);margin:14px 0 6px}
+.pill.mail .pm{letter-spacing:-.01em}
+@media(max-width:400px){.pill.mail{padding:6px 9px;font-size:12px}.pill.mail svg{width:13px;height:13px}.pill.dark{padding:6px 9px;font-size:12px}}
+.pill{white-space:nowrap}.logo{white-space:nowrap}.pill.ig .igi{display:none}
+@media(max-width:380px){.pill.ig .it,.pill.ig .arr{display:none}.pill.ig .igi{display:block;width:16px;height:16px}.pill.ig{padding:6px 8px}}
 </style></head><body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
-<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<div class="tr"><a class="pill mail" href="mailto:jinspringg@gmail.com" title="협업·문의 메일"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="pm">jinspringg@gmail.com</span></a><a class="pill dark ig" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="igi" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg><span class="it">Instagram</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
 <main id="main"><article class="wrap art">
 <a class="back" href="../../">← 전체 목록</a>
 <p class="meta"><span class="cat">AI 영상</span><span>2026. 07. 10</span><span>10분</span></p>
@@ -238,11 +242,11 @@ var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.ge
 var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
 function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function dl(e){if(e===undefined||e===null)return "";if(!e)return '<span class="dl">기한 미정</span>';var d=dd(e);return d<0?'<span class="dl end">마감</span>':'<span class="dl hot">'+(d===0?"D-DAY":"D-"+d)+'</span>'}
-function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+function card(g,n){var th=g.i?'<img src="'+esc(g.i)+'" alt="" width="76" height="76" decoding="async"'+(n<8?' fetchpriority="high"':' loading="lazy"')+'>':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
   var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+dl(g.e)+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
   return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
 function render(){var k=q.trim().toLowerCase(),L=D.slice().sort(function(a,b){return (a.e&&dd(a.e)<0?1:0)-(b.e&&dd(b.e)<0?1:0)}).filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
-  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  grid.innerHTML=L.slice(0,shown).map(function(g,n){return card(g,n)}).join("");
   var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
 document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
 document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
