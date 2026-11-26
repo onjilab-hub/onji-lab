@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NewTake로 AI 영상 만들고 원하는 구간만 수정하기 | onji.lab</title><meta name="description" content="한 보드에서 이미지와 영상을 만들고, 마음에 들지 않는 구간만 골라 다시 만드는 NewTake 사용법.">
+<meta property="og:title" content="NewTake로 AI 영상 만들고 원하는 구간만 수정하기 | onji.lab"><meta property="og:description" content="한 보드에서 이미지와 영상을 만들고, 마음에 들지 않는 구간만 골라 다시 만드는 NewTake 사용법."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">AI 영상</span><span>2026. 09. 10</span><span>11분</span></p>
+<h1>NewTake로 AI 영상 만들고 원하는 구간만 수정하기</h1><p class="lead">한 보드에서 이미지와 영상을 만들고, 마음에 들지 않는 구간만 골라 다시 만드는 NewTake 사용법.</p><p class="tools">사용 툴 · NewTake</p>
+<div class="body"><aside class="callout">
+<p>영상에서 소개한 작업 순서와 실제 사용 프롬프트를 함께 정리했습니다😊<br />AI 영상은 이전보다 훨씬 자연스러워졌지만, 한 번에 원하는 결과를 얻기는 여전히 어렵습니다. 특정 부분을 수정하려고 전체 영상을 계속 다시 생성하면 영상 스타일이 바뀌거나 크레딧을 반복해서 사용하게 되는데요.</p>
+</aside>
+<p>NewTake에서는 한 보드 안에서 이미지와 영상을 생성하고, 마음에 들지 않는 구간만 선택해 다시 만들 수 있습니다.</p>
+<p>👉 <a href="https://www.newtake.ai/ko?sourceId=NT904363" target="_blank" rel="noopener">NewTake 바로가기</a></p>
+<h2>전체 제작 흐름</h2>
+<ol>
+<li>레퍼런스 이미지 등록</li>
+<li>이미지 1장을 4컷 스토리보드로 확장 (선택)</li>
+<li>스토리보드를 참고해 영상 생성</li>
+<li>수정할 구간 선택</li>
+<li>해당 구간만 리메이크</li>
+<li>결과 비교 후 최종 영상 선택</li>
+</ol>
+<h2>STEP 1. 프로젝트 생성 — 영상 주인공으로 사용할 이미지 올리기</h2>
+<p>먼저 영상에 사용할 캐릭터이미지를 보드에 추가합니다.</p>
+<p>캐릭터의 외형을 여러 장면에서 일관되게 유지하려면, 단일 이미지보다 다양한 각도가 담긴 캐릭터 시트를 사용하는 것이 좋습니다. 캐릭터 이미지가 한 장뿐이라면 아래 두 가지 방법으로 캐릭터 시트를 만들어주세요.</p>
+<h3>캐릭터 시트 만들기 (1) — 프롬프트로 생성하기</h3>
+<p>캐릭터 이미지를 첨부하고 아래 프롬프트를 입력합니다. 인물이라면 레퍼런스 이미지를 여러 장 첨부해주세요.</p>
+<p><b>인물 캐릭터 시트 생성 프롬프트</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 사진 속 인물을 기반으로 실사 인물 캐릭터 시트를 만들어주세요.
+
+원본 인물의 얼굴형, 이마와 턱의 비율, 눈의 크기와 간격, 눈매, 코의 길이와 형태, 입술 모양, 광대, 헤어라인, 귀의 위치와 검정 단발 헤어를 모든 각도에서 정확히 유지해주세요.
+
+얼굴을 예쁘게 재해석하거나 다른 사람처럼 바꾸지 말고, 원본 인물의 자연스러운 비대칭과 실제 피부 질감까지 유지합니다. AI 미인형 얼굴, 성형한 듯한 변화, 큰 눈, 갸름한 턱, 높은 코, 플라스틱 피부 표현은 금지합니다.
+
+정면, 왼쪽 45도, 오른쪽 45도, 왼쪽 옆면, 오른쪽 옆면, 뒷면의 상반신 모습을 한 이미지 안에 동일한 크기로 배치해주세요.
+
+모든 각도에서 동일한 인물, 동일한 헤어스타일, 동일한 의상, 동일한 액세서리와 체형을 유지합니다. 표정은 모두 편안한 무표정, 시선은 얼굴 방향과 일치하도록 표현해주세요.
+
+동일한 카메라 거리와 조명, 색감으로 촬영한 스튜디오 레퍼런스 시트 형식. 흰색 배경, 선명한 얼굴 디테일, 인물끼리 겹치거나 잘리지 않게 배치. 화면 안에는 글자를 넣지 않습니다.
+</code></pre></div>
+<h3>캐릭터 시트 만들기 (2) — NewTake 메뉴에서 생성하기</h3>
+<p>NewTake에서도 캐릭터 시트를 바로 생성할 수 있습니다.</p>
+<figure><img src="../../assets/g/newtake/01.jpg" alt="" loading="lazy"></figure>
+
+<h2>STEP 2. 이미지 1장을 4컷 스토리보드로 확장하기</h2>
+<p>레퍼런스 이미지를 연결한 뒤, 만들고 싶은 스토리를 입력해 4컷 그리드로 확장합니다.<br />이번 영상에서는 '늦잠을 자서 회사에 지각한 직장인'의 상황을 만들었습니다.</p>
+<figure><img src="../../assets/g/newtake/02.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/newtake/03.jpg" alt="" loading="lazy"></figure>
+
+<h3>실제 사용한 4컷 스토리보드 프롬프트</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">[캐릭터시트] 를 주체로 [장면이미지] 장면의 다음 장면 스토리 보드를 만들어주세요.
+1. 알람을 끄고 다시 잠든 상황.
+2. 눈을 뜨고 핸드폰을 확인하며 놀람
+3. 회사에 지각해서 눈치보며 자리로 감
+4. 자리에 조용히 앉음
+
+모든 장면에서 동일한 인물의 얼굴형, 눈·코·입, 검정 단발 헤어와 체형을 유지해주세요.
+집에서는 흰색 반팔 티셔츠의 편안한 잠옷 차림, 회사에서는 흰 셔츠와 검정 재킷을 입은 단정한 오피스룩을 착용합니다.
+
+iPhone으로 촬영한 자연스러운 일상 브이로그 스타일로 표현해주세요. 광고처럼 과도하게 연출된 느낌보다 실제 직장인의 아침을 기록한 듯한 현실적인 분위기로 제작합니다.
+</code></pre></div>
+<h2>STEP 3. 스토리보드로 영상 생성하기</h2>
+<p>완성된 4컷 스토리보드를 참고 이미지로 연결하고, 영상의 길이와 장면별 동작을 입력합니다.</p>
+<p>이번 영상은 4개의 상황을 총 6초의 빠른 컷으로 구성했습니다.</p>
+<h3>실제 사용한 영상 프롬프트</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 4컷 스토리보드의 인물, 의상, 배경과 장면 구도를 참고해 알람을 끄고 다시 잠든 인물이 늦잠을 자고 회사에 지각하는 상황을 총 6초의 빠른 일상 브이로그 영상으로 만들어주세요.
+
+#인물
+
+[캐릭터시트] 속 인물을 주체로, 얼굴형과 눈·코·입, 검정 단발 헤어, 체형을 모든 장면에서 동일하게 유지합니다. 움직이거나 장면이 전환될 때도 다른 인물로 변형되지 않도록 합니다.
+
+집에서는 흰색 반팔 티셔츠의 편안한 잠옷 차림, 회사에서는 흰 셔츠와 검정 재킷의 단정한 오피스룩을 착용합니다. 회사 장면에서는 검정 숄더백을 한쪽 어깨에 멘 상태를 유지합니다.
+
+#배경
+
+아침: 부드러운 햇빛이 들어오는 작은 오피스텔 침실. 흰색 침구와 생활감 있는 침대.
+
+회사: 모니터와 사무용 의자가 놓인 현실적인 오픈형 사무실. 동료들은 배경에 흐릿하게만 보이고 얼굴은 선명하게 노출하지 않습니다.
+
+#장면
+
+0.0~1.2초
+
+침대에 누워 있던 인물이 눈을 제대로 뜨지 않은 채 한 손을 뻗어 스마트폰 알람을 끕니다. 곧바로 이불을 끌어당겨 덮고 옆으로 돌아누워 다시 잠듭니다.
+
+1.2~2.7초
+
+짧은 타임 점프와 함께 방 안의 햇빛이 조금 더 밝아집니다. 인물이 갑자기 눈을 뜨고 스마트폰을 집어 시간을 확인합니다. 화면을 본 순간 눈이 커지고 입을 살짝 벌리며 크게 놀랍니다.
+
+2.7~4.6초
+
+빠른 점프컷으로 회사 장면으로 전환됩니다. 오피스룩을 입고 검정 숄더백을 멘 인물이 몸을 살짝 움츠린 채 사무실 안으로 들어옵니다. 주변의 눈치를 보며 좌우를 흘끗 살피고 자기 자리로 빠르게 이동합니다.
+
+4.6~6.0초
+
+인물이 자기 자리에 도착해 숄더백을 어깨에서 조심스럽게 내립니다. 소리가 나지 않게 의자를 당겨 빠르게 앉은 뒤, 아무 일도 없었던 것처럼 모니터를 바라봅니다.
+
+#카메라
+
+iPhone으로 촬영한 현실적인 일상 브이로그 스타일. 인물 가까이에서 관찰하듯 촬영하며 살짝 흔들리는 자연스러운 핸드헬드 느낌을 사용합니다. 자동 초점을 사용하고 1~1.5초 간격의 빠른 점프컷으로 구성합니다.
+
+#사운드
+
+아이폰 알람 소리, 침구가 바스락거리는 소리, 짧은 시간 경과 효과음, 빠른 발걸음, 가방 끈과 의자가 움직이는 소리, 잔잔한 사무실 생활 소음.
+
+#금지
+
+색보정, 필름 룩, 시네마틱 룩, 뷰티 필터, CG 질감, 과장된 표정과 슬로모션을 사용하지 않습니다.
+
+화면 내 텍스트, 자막, 이모지, 스티커, 로고, 워터마크를 생성하지 않습니다.
+
+인물의 얼굴과 헤어스타일 변형, 집과 회사 의상 혼합, 숄더백이 장면 중간에 사라지는 현상을 금지합니다.
+</code></pre></div>
+<h2>STEP 4. 원하는 구간만 선택해 리메이크하기</h2>
+<p>생성된 영상에서 마음에 들지 않는 구간을 선택한 뒤, 바꾸고 싶은 내용만 입력합니다.<br />이때 중요한 점은 '바꿀 내용'뿐 아니라 '유지할 내용'도 함께 적는 것입니다.</p>
+<figure><img src="../../assets/g/newtake/04.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/newtake/05.jpg" alt="" loading="lazy"></figure>
+
+<h3>구간 리메이크 프롬프트 기본 구조</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">{{원본 영상}}의 {{수정할 구간}}을 아래 내용으로 리메이크해주세요.
+
+[변경할 내용]
+선택한 구간에서 변경할 인물의 행동, 표정, 배경과 장면 흐름을 작성합니다.
+
+[유지할 내용]
+선택 구간 앞뒤의 장면은 수정하지 않습니다.
+원본 영상의 전체 길이, 화면 비율, 화질, 인물, 의상, 배경, 카메라 구도, 색감, 조명과 편집 리듬을 유지합니다.
+
+[금지할 내용]
+새로운 인물이나 소품을 추가하지 않습니다.
+인물의 얼굴, 헤어스타일과 체형을 변형하지 않습니다.
+선택한 구간 외의 장면은 변경하지 않습니다.
+</code></pre></div>
+<h3>실제 사용한 구간 리메이크 프롬프트</h3>
+<p>수정하고 싶은 영역은 새롭게 작성하고, 유지하고 싶은 영역은 기존 영상 프롬프트와 동일하게 작성합니다.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">[원본 영상]에서 선택한 구간을 아래 내용으로 리메이크해주세요.
+
+알람을 끈 직후부터 회사에 지각해 자리에 앉는 장면까지, 빠른 일상 브이로그로 구성합니다.
+
+기존 영상과 동일한 인물 [캐릭터시트] 의 얼굴형, 눈·코·입, 검은색 단발머리와 체형을 정확히 유지합니다. 집에서는 기존 잠옷, 회사에서는 기존 오피스룩를 유지합니다. 오피스텔 침실과 회사 공간 역시 원본의 배경 구조와 분위기를 그대로 이어갑니다.
+
+0.0초~1.5초 (출근)
+갈색 말티즈 강아지를 품에 안은채 집 문을 나선다.
+이 장면부터 오피스룩: 와이드 슬랙스, 반팔 브이넥 블라우스. 단정하지만 스타일리시함.
+바쁘게 문을 닫고 나가며 품에는 강아지, 출근하는 직장인의 분주한 느낌.
+사운드: 문 여닫는 소리, 발걸음 소리.
+
+1.5~3.0초 (회사)
+
+빠른 점프컷으로 회사 장면으로 전환합니다. 인물은 흰 셔츠와 검정 재킷의 기존 오피스룩을 입고 검정 숄더백을 한쪽 어깨에 메고 있습니다.
+
+지각한 듯 몸을 작게 움츠리고 좌우를 흘끗 살피며 빠른 걸음으로 자기 자리로 향합니다.
+
+3.0초~마지막
+
+인물이 숄더백을 조심스럽게 내려놓고 의자를 당겨 최대한 소리 나지 않게 자리에 앉습니다. 아무 일도 없었던 것처럼 자세를 바로잡고 모니터를 바라봅니다.
+
+선택 구간 앞뒤의 기존 장면은 수정하지 않습니다.
+
+원본 영상의 전체 길이, 화면 비율, 화질, iPhone 촬영 질감, 카메라 구도, 색감, 조명과 편집 리듬을 유지하며 선택한 구간만 교체합니다.
+
+기존 영상과 동일한 인물의 얼굴형, 눈·코·입, 검정 단발머리와 체형을 정확히 유지합니다. 집에서는 기존 잠옷, 회사에서는 기존 오피스룩과 검정 숄더백을 유지합니다.
+
+화면 내 텍스트, 자막, 로고, 워터마크와 새로운 인물을 생성하지 않습니다. 얼굴과 헤어스타일 변형, 의상 혼합, 과도한 슬로모션, 시네마틱 룩, 뷰티 필터와 과장된 특수효과를 사용하지 않습니다.
+</code></pre></div>
+<h2>구간 리메이크할 때 꼭 적어야 하는 것</h2>
+<h3>1. 수정 범위</h3>
+<p>어디서부터 어디까지 바꿀지 선택하고, 해당 구간 안의 시간별 행동을 나눠주세요.</p>
+<h3>2. 변경할 행동</h3>
+<p>'당황한다'보다 '스마트폰을 확인한 뒤 눈을 크게 뜨고 침대에서 빠르게 일어난다'처럼 동작이 보이도록 작성해주세요.</p>
+<h3>3. 유지할 요소</h3>
+<p>다음 요소들은 그대로 유지해달라고 명확하게 적어주는 것이 좋습니다.</p>
+<ul>
+<li>인물 얼굴과 헤어스타일</li>
+<li>기존 의상과 소품</li>
+<li>배경 구조</li>
+<li>카메라 구도</li>
+<li>영상 색감과 조명</li>
+<li>전체 편집 리듬</li>
+<li>선택 구간의 앞뒤 장면</li>
+</ul>
+<h3>4. 생성하지 않을 요소</h3>
+<p>원하지 않는 변화도 함께 적어주세요.</p>
+<ul>
+<li>새로운 인물 추가 금지</li>
+<li>얼굴 변형 금지</li>
+<li>의상 혼합 금지</li>
+<li>화면 내 텍스트 생성 금지</li>
+<li>과한 슬로모션과 특수효과 금지</li>
+</ul>
+<p>도움이 되셨다면 저장해두고, 다음 AI 영상 제작에도 활용해보세요😊</p></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>

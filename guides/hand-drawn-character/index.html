@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>나만의 손그림 캐릭터 만들기 | onji.lab</title><meta name="description" content="셀카나 반려동물 사진 한 장으로 인스타툰·스티커용 낙서 스타일 손그림 캐릭터를 만드는 GPT 프롬프트 모음.">
+<meta property="og:title" content="나만의 손그림 캐릭터 만들기 | onji.lab"><meta property="og:description" content="셀카나 반려동물 사진 한 장으로 인스타툰·스티커용 낙서 스타일 손그림 캐릭터를 만드는 GPT 프롬프트 모음."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">AI 이미지</span><span>2026. 08. 17</span><span>9분</span></p>
+<h1>나만의 손그림 캐릭터 만들기</h1><p class="lead">셀카나 반려동물 사진 한 장으로 인스타툰·스티커용 낙서 스타일 손그림 캐릭터를 만드는 GPT 프롬프트 모음.</p><p class="tools">사용 툴 · ChatGPT</p>
+<div class="body"><aside class="callout">
+<p>AI 학습과 현업에서 캐릭터를 활용해보는 데 도움이 되시길 바랍니다😊</p>
+</aside>
+<p>셀카나 반려동물 사진 한 장이면 인스타툰·프로필·스티커·이모티콘에 활용할 수 있는 나만의 손그림 캐릭터를 만들 수 있어요.</p>
+<p>아래 프롬프트는 일부러 대충 그린 느낌이 드는 낙서 스타일 손그림 캐릭터 스타일입니다. 원하는 스타일에 맞춰 프롬프트 안의 키워드를 조금씩 바꿔가며 사용하셔도 좋아요!</p>
+<h2>한눈에 보는 제작 순서</h2>
+<p><b>STEP 1.</b> 사진 준비하기<br>
+<b>STEP 2.</b> 사진과 프롬프트 함께 넣기<br>
+<b>STEP 3.</b> 결과 수정하고 개성 추가하기<br>
+<b>STEP 4.</b> 네 컷 툰으로 확장하기</p>
+<h2>STEP 1. 사진 준비하기</h2>
+<p>캐릭터로 만들 셀카 또는 반려동물 사진을 준비하세요.</p>
+<h3>인물 사진</h3>
+<ul>
+<li>얼굴이 잘 보이는 정면 사진</li>
+<li>표정이 자연스럽게 드러난 사진</li>
+<li>가능하면 상반신까지 나온 사진</li>
+<li>헤어스타일과 착용물이 잘 보이는 사진</li>
+</ul>
+<h3>반려동물 사진</h3>
+<ul>
+<li>얼굴과 귀 모양이 잘 보이는 사진</li>
+<li>털색과 무늬를 확인할 수 있는 사진</li>
+<li>가능하면 전신이 나온 사진</li>
+<li>정면에 가까운 사진</li>
+</ul>
+<p>표정과 특징이 잘 보이는 사진일수록 캐릭터의 개성을 살리기 쉬워요.</p>
+<h2>STEP 2. 사진과 프롬프트 함께 넣기</h2>
+<p>GPT 대화창에 사진을 첨부한 다음, 인물 또는 반려동물용 프롬프트를 복사해 입력하세요.</p>
+<h3>인물 손그림 캐릭터 프롬프트</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 사진 속 인물을 인스타툰 캐릭터로 변환해줘.
+
+얼굴형, 헤어스타일과 머리색, 안경 같은 착용물 정도만 알아볼 수 있게 남기고 나머지 디테일은 모두 버려줘. 실제 얼굴을 예쁘게 재현하는 것이 아니라, 아래 조건에 맞춰 일부러 못나고 웃기게 재창조하는 것이 목적이야.
+
+이건 &quot;잘 그린 귀여운 그림&quot;이 절대 아니야. 어린아이가 5초 만에 삐뚤빼뚤하게 낙서한 것처럼, 일부러 못 그린 못난이 짤 스타일이어야 해.
+
+다음 조건을 반드시 지켜줘.
+
+- 선은 떨리고 삐뚤빼뚤하게 그려줘.
+- 좌우가 비대칭이고 어딘가 어긋난 형태로 표현해줘.
+- 깔끔하거나 매끄럽고 부드러운 선은 사용하지 마.
+- 얼굴과 몸은 대충 뭉갠 형태로, 균형이 맞지 않게 그려줘.
+- 머리 모양이나 몸통이 살짝 찌그러져도 좋아.
+- 눈은 크고 예쁘게 그리지 말고, 점 두 개 또는 크기가 다른 작은 짝짝이 눈으로 표현해줘.
+- 코와 입은 대충 툭툭 그린 삐뚤한 선 하나 정도로 표현해줘.
+- 표정은 멍하거나 어이없거나 무심해서 웃긴 느낌으로 만들어줘.
+- 전체적으로 &quot;귀엽다&quot;보다 &quot;못생겼는데 웃기다&quot;는 인상이 강해야 해.
+
+채색은 거의 하지 마. 흰 배경에 검은 손그림 선을 중심으로 그리고, 색은 사용하지 않거나 볼터치 또는 옷 한 곳에만 한 가지 색을 옅게 넣어줘.
+
+머리는 크고 몸은 작은 2~2.5등신 전신 캐릭터가 정면으로 서 있는 포즈로 만들어줘.
+
+너무 잘 그리지 마. 어설프고 대충 그린 것처럼 보일수록 성공이야.
+</code></pre></div>
+<h3>반려동물 손그림 캐릭터 프롬프트</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 사진 속 반려동물을 인스타툰 캐릭터로 변환해줘.
+
+반려동물의 종, 털색, 털 무늬, 귀 모양 정도만 알아볼 수 있게 남기고 나머지 디테일은 모두 버려줘. 실제 모습을 예쁘게 재현하는 것이 아니라, 아래 조건에 맞춰 일부러 못나고 웃기게 재창조하는 것이 목적이야.
+
+이건 &quot;잘 그린 귀여운 그림&quot;이 절대 아니야. 어린아이가 5초 만에 삐뚤빼뚤하게 낙서한 것처럼, 일부러 못 그린 못난이 짤 스타일이어야 해.
+
+다음 조건을 반드시 지켜줘.
+
+- 선은 떨리고 삐뚤빼뚤하게 그려줘.
+- 좌우가 비대칭이고 어딘가 어긋난 형태로 표현해줘.
+- 깔끔하거나 매끄럽고 부드러운 선은 사용하지 마.
+- 털은 섬세하게 그리지 말고, 구불구불한 선 몇 개로 대충 뭉개서 표현해줘.
+- 눈은 크고 예쁘게 그리지 말고, 점 두 개 또는 크기가 다른 작은 짝짝이 눈으로 표현해줘.
+- 코와 입도 대충 툭툭 그린 단순한 선으로 표현해줘.
+- 표정은 멍하거나 어이없거나 무심해서 웃긴 느낌으로 만들어줘.
+- 전체적으로 &quot;귀엽다&quot;보다 &quot;못생겼는데 웃기다&quot;는 인상이 강해야 해.
+
+채색은 거의 하지 마. 흰 배경에 검은 손그림 선을 중심으로 그리고, 색은 사용하지 않거나 원본 반려동물의 털색을 옅게 한 번만 넣어줘.
+
+머리는 크고 몸은 작은 2~2.5등신 전신 캐릭터가 사람처럼 두 발로 서 있는 의인화 포즈로 만들어줘.
+
+너무 잘 그리지 마. 어설프고 대충 그린 것처럼 보일수록 성공이야.
+</code></pre></div>
+<h2>STEP 3. 마음에 들 때까지 수정하기</h2>
+<p>처음부터 원하는 결과가 나오지 않을 수도 있어요. 결과를 확인한 뒤, 마음에 들지 않는 부분만 구체적으로 수정해보세요.</p>
+<h3>너무 예쁜 일러스트처럼 나왔을 때</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">지금보다 훨씬 단순하게 그려줘. 깔끔한 일러스트가 아니라, 어린아이가 검은 펜으로 급하게 그린 것처럼 선을 더 떨리고 삐뚤빼뚤하게 표현해줘.
+</code></pre></div>
+<h3>눈이 너무 크거나 예쁘게 나왔을 때</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">눈은 크고 반짝이는 눈으로 그리지 말고, 작고 단순한 검은 점 두 개로만 표현해줘.
+</code></pre></div>
+<h3>몸이 너무 길게 나왔을 때</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">머리는 더 크게, 몸은 더 짧고 작게 줄여서 2등신에 가까운 전신 캐릭터로 수정해줘.
+</code></pre></div>
+<h3>너무 귀엽게 나왔을 때</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">귀여운 느낌을 줄이고, 비율과 표정을 더 어설프고 비대칭으로 만들어줘. 못생겼지만 자꾸 보게 되는 웃긴 낙서 캐릭터처럼 수정해줘.
+</code></pre></div>
+<h3>선이 너무 깔끔할 때</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">선을 매끄럽게 정리하지 말고, 손이 떨린 것처럼 굵기와 방향이 불규칙한 삐뚤빼뚤한 검은 펜 선으로 바꿔줘.
+</code></pre></div>
+<h3>마음에 드는 그림체에 내 특징 추가하기</h3>
+<p>전체 그림체와 비율이 마음에 든다면, 새로 생성하기보다 현재 이미지를 첨부하고 원하는 특징만 추가해보세요.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 캐릭터의 그림체, 얼굴형, 신체 비율, 선의 느낌, 표정과 채색은 그대로 유지해줘.
+
+캐릭터를 새롭게 해석하거나 다시 디자인하지 말고, 아래 특징만 추가 또는 수정해줘.
+
+- 추가할 얼굴 특징:
+- 눈 모양 또는 눈 색:
+- 헤어스타일:
+- 의상:
+- 액세서리:
+- 기타 특징:
+
+작성하지 않은 부분은 원본 캐릭터와 완전히 동일하게 유지해줘.
+</code></pre></div>
+<p>추가할 수 있는 특징 예시: 얼굴의 점, 눈 색 또는 눈 모양, 앞머리와 헤어스타일, 안경이나 선글라스, 귀걸이, 모자, 자주 입는 옷, 반려동물의 털 무늬, 목줄이나 스카프.</p>
+<p>한 번에 여러 요소를 바꾸기보다 한두 가지씩 추가하면 캐릭터의 일관성을 유지하기 쉬워요.</p>
+<h3>원하는 그림체의 예시 이미지가 있을 때</h3>
+<p>내 사진과 그림체 예시 이미지를 함께 첨부한 뒤 아래 프롬프트를 사용하세요.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 이미지들의 역할을 구분해서 작업해줘.
+
+- 첫 번째 이미지: 캐릭터의 인물 또는 반려동물 특징을 참고할 원본 사진
+- 두 번째 이미지: 선, 비율, 표정, 단순화 방식과 채색을 참고할 그림체 예시
+
+첫 번째 이미지에서는 얼굴형, 헤어스타일, 착용물 또는 종, 털색, 귀 모양처럼 대상을 알아볼 수 있는 핵심 특징만 가져와줘.
+
+두 번째 이미지에서는 삐뚤빼뚤한 선, 단순한 이목구비, 머리가 크고 몸이 작은 비율, 최소한의 채색처럼 시각적인 표현 방식만 참고해줘.
+
+두 이미지를 그대로 합성하지 말고, 첫 번째 이미지 속 대상을 두 번째 이미지와 같은 표현 방식의 새로운 전신 캐릭터로 만들어줘.
+
+흰 배경에 캐릭터 한 명만 정면으로 배치하고, 글자나 소품은 넣지 마.
+</code></pre></div>
+<h2>STEP 4. 네 컷 툰으로 확장하기</h2>
+<p>캐릭터가 완성됐다면 표정과 동작이 다른 네 컷 툰으로 확장해보세요. 인스타툰, 이모티콘, 스티커 또는 캐릭터 영상 제작 전 테스트 시트로 활용할 수 있습니다.</p>
+<ol>
+<li>완성된 캐릭터 이미지를 GPT에 첨부하기</li>
+<li>아래의 네 컷 프롬프트 입력하기</li>
+<li>한 장에 4가지 표정과 동작이 담긴 캐릭터 툰 완성하기</li>
+</ol>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 이미지 속 캐릭터를 그대로 사용해서 2×2 그리드의 4컷 툰을 만들어줘.
+
+캐릭터의 생김새, 얼굴 특징, 신체 비율, 그림체, 선의 느낌과 채색 스타일을 네 컷 모두 완전히 동일하게 유지해줘. 캐릭터를 새롭게 해석하거나 디자인하지 말고, 표정과 동작만 바꿔줘.
+
+직장인의 하루를 담은 다음 감정 흐름으로 구성해줘.
+
+- 왼쪽 위: 주먹을 불끈 쥐고 의욕이 넘치는 밝은 표정
+- 오른쪽 위: 고개를 갸웃하며 고민하는 표정
+- 왼쪽 아래: 두 손을 들고 깜짝 놀라 당황한 표정
+- 오른쪽 아래: 책상에 녹아내리듯 축 늘어진 번아웃 표정
+
+네 컷 모두 동일한 캐릭터로 일관되게 표현해줘.
+
+각 칸에는 흰 배경 위에 캐릭터 한 명만 명확하게 배치하고, 대사나 글자는 넣지 마. 표정과 몸짓만으로 감정이 드러나게 만들어줘.
+
+원본 캐릭터의 손그림 느낌과 채색 스타일을 그대로 유지해줘.
+</code></pre></div>
+<p>결과가 마음에 들지 않는다면 전체를 다시 만들기보다, 마음에 들지 않는 부분만 한 가지씩 구체적으로 수정해보세요. 저장해두고 나만의 캐릭터를 만들어보세요 ✍️</p></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>

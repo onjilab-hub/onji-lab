@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>프로필 이미지 GPT 프롬프트.zip | onji.lab</title><meta name="description" content="직접 테스트해 결과가 안정적이었던 GPT 프로필 사진 프롬프트 5종(컬러 배경, 다크톤, 쿨톤, 배우 프로필, 취업 증명사진).">
+<meta property="og:title" content="프로필 이미지 GPT 프롬프트.zip | onji.lab"><meta property="og:description" content="직접 테스트해 결과가 안정적이었던 GPT 프로필 사진 프롬프트 5종(컬러 배경, 다크톤, 쿨톤, 배우 프로필, 취업 증명사진)."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">AI 이미지</span><span>2026. 05. 23</span><span>10분</span></p>
+<h1>프로필 이미지 GPT 프롬프트.zip</h1><p class="lead">직접 테스트해 결과가 안정적이었던 GPT 프로필 사진 프롬프트 5종(컬러 배경, 다크톤, 쿨톤, 배우 프로필, 취업 증명사진).</p><p class="tools">사용 툴 · ChatGPT</p>
+<div class="body"><p>요즘 GPT 이미지 생성 성능이 좋아져서 프로필 사진도 꽤 자연스럽게 뽑히더라고요. 직접 테스트하면서 결과가 안정적이었던 프롬프트만 정리했어요 📁</p>
+<h2>✔ 사용 전 체크</h2>
+<ul>
+<li>상반신 컷 + 셀카 컷 2장 조합 추천</li>
+<li>정면 + 살짝 반측면 얼굴이 선명한 사진이 가장 안정적</li>
+<li>내가 가장 예쁘게 나온 얼굴 각도의 사진일수록 결과 만족도 높음</li>
+<li>얼굴이 과하게 확대되지 않은 자연스러운 구도의 사진 추천</li>
+</ul>
+<h2>1. 컬러 배경 스튜디오 프로필</h2>
+<figure><img src="../../assets/g/profile-image-gpt/01.jpg" alt="" loading="lazy"><figcaption>은은한 파스텔 배경 + 맑은 한국 스튜디오 무드</figcaption></figure>
+
+<p>[배경] 컬러는 원하는 색으로 바꿔 넣으면 결과가 더 좋아요. 남성의 경우 입술 메이크업은 "자연스러운 혈색 컬러" 정도로만 넣어주세요.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 원본 사진 속 인물로 컬러 배경의 스튜디오 프로필 사진 만들어줘.
+
+원본 인물의 얼굴 특징, 얼굴형, 눈·코·입 비율, 헤어스타일과 전체 인상을 최대한 유지해줘.
+다른 사람처럼 변형하지 말고 실제 인물 느낌을 자연스럽게 살려줘.
+AI 미인형 얼굴, 과한 성형 느낌, 플라스틱 피부 표현 금지.
+
+자연스럽게 정돈된 한국 스튜디오 프로필 사진 느낌.
+맑고 깨끗한 분위기지만 실제 인물 느낌 유지.
+soft natural studio retouching only.
+
+[배경]
+은은한 파스텔톤 단색 배경.
+연핑크, 라벤더, 스카이블루, 피치 계열.
+부드럽고 밝은 스튜디오 무드.
+
+[메이크업]
+맑고 자연스러운 한국 메이크업.
+피부결은 유지하면서 깨끗하고 균일하게 정돈된 느낌.
+눈매와 눈썹은 또렷하지만 과하지 않게 표현.
+입술은 자연스러운 로즈핑크·코랄 계열 혈색 컬러.
+
+[헤어]
+윤기 있게 정돈된 자연스러운 헤어.
+실제 헤어라인과 얼굴 인상 유지.
+과한 볼륨·헤어 변형 금지.
+
+[표정]
+카메라를 자연스럽게 응시.
+은은한 미소 또는 차분한 표정.
+부드럽고 편안한 분위기.
+
+[조명]
+피부톤이 자연스럽게 밝고 화사하게 표현되는 스튜디오 조명.
+하얗고 맑은 피부 표현이 되도록 부드러운 확산광 사용.
+그림자 거의 없는 깨끗한 조명 느낌.
+
+[구도 &amp; 포즈]
+waist-up medium shot composition.
+얼굴만 과하게 확대되지 않도록 자연스러운 상반신 비율 유지.
+어깨와 팔 라인이 자연스럽게 보이도록 안정적인 스튜디오 포즈.
+몸은 살짝 사선, 얼굴은 카메라를 자연스럽게 응시.
+광각 왜곡 없는 자연스러운 인물 비율.
+
+soft bright studio lighting, clean luminous skin tone, natural studio portrait composition
+</code></pre></div>
+<h2>2. 다크톤 스튜디오 + 블랙 자켓 프로필</h2>
+<figure><img src="../../assets/g/profile-image-gpt/02.jpg" alt="" loading="lazy"><figcaption>차분하고 고급스러운 에디토리얼 무드</figcaption></figure>
+
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">업로드한 원본 인물 사진 기반으로 제작.
+원본 인물의 얼굴 특징과 인상을 최대한 유지해줘.
+눈·코·입·얼굴형 변경 금지.
+AI 미인형 얼굴, 과한 성형 느낌, 플라스틱 피부 표현 금지.
+
+미니멀한 패션 에디토리얼 스튜디오 인물 사진.
+블랙 자켓 + 블랙 이너 스타일링.
+차분하고 담백한 표정.
+카메라를 자연스럽게 응시하는 포즈.
+
+[헤어 &amp; 메이크업]
+헤어와 메이크업은 스튜디오 무드에 맞게 자연스럽고 깔끔하게 정돈.
+피부결은 유지하면서 깨끗하고 은은하게 보정된 피부 표현.
+입술은 자연스러운 MLBB 계열 컬러.
+
+[배경]
+딥그레이~블랙 계열의 미니멀 스튜디오 배경.
+배경은 어둡고 깊이감 있게 유지하되 인물은 밝고 고급스럽게 표현.
+
+[조명]
+부드럽고 밝은 key light로 피부톤이 맑고 화사하게 보이도록.
+그림자는 과하지 않게 softly lifted shadows.
+
+[구도]
+waist-up portrait framing.
+얼굴이 과하게 커 보이지 않도록 여유 있는 상반신 프레이밍.
+어깨와 쇄골 라인이 자연스럽게 드러나는 안정적인 비율.
+고급 패션 프로필 느낌의 자연스러운 스튜디오 포즈.
+
+natural skin texture, premium editorial portrait, luxury fashion profile photo
+</code></pre></div>
+<h2>3. 화이트 + 쿨톤 스튜디오 프로필</h2>
+<figure><img src="../../assets/g/profile-image-gpt/03.jpg" alt="" loading="lazy"><figcaption>맑고 청량한 뷰티 캠페인 느낌</figcaption></figure>
+
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">업로드한 원본 사진 기반으로 맑고 청량한 하이엔드 스튜디오 프로필 이미지 만들어줘.
+
+원본 인물의 얼굴 특징과 분위기를 최대한 유지하고 다른 사람처럼 변형하지 말아줘.
+과한 AI 미인 보정, 성형 느낌, 플라스틱 피부 표현 금지.
+
+[스타일]
+차가운 화이트-블루 계열의 깨끗한 색감,
+부드러운 soft studio lighting,
+낮은 대비(low contrast),
+투명하고 자연스러운 피부 표현,
+맑은 하이라이트와 깨끗한 shadow tone.
+
+미니멀한 화이트 스튜디오 배경,
+공기감 있는 airy mood,
+차분하고 청초한 Korean beauty editorial 스타일.
+
+[헤어 &amp; 메이크업]
+헤어와 메이크업은 자연스럽고 깔끔하게 정돈.
+눈동자는 맑고 투명하게,
+머리카락은 윤기 있고 차분하게 표현.
+
+[구도]
+자연스럽고 안정적인 스튜디오 프로필 구도.
+상반신 중심 medium close-up composition.
+얼굴이 과하게 확대되지 않도록 balanced head-to-body ratio 유지.
+목과 어깨 라인이 자연스럽고 안정감 있게 보이도록 표현.
+
+clean skin texture, soft natural retouching, cool pastel tone, luxury beauty campaign style
+</code></pre></div>
+<h2>4. 화이트 + 자연광 배우 프로필</h2>
+<figure><img src="../../assets/g/profile-image-gpt/04.jpg" alt="" loading="lazy"><figcaption>배우 오디션 프로필 느낌의 담백한 무드</figcaption></figure>
+
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">업로드한 원본 사진 속 인물로 화이트톤 자연광 스튜디오 프로필 사진 만들어줘.
+
+원본 인물의 얼굴 특징, 얼굴형, 눈·코·입 비율, 헤어스타일과 전체 인상을 최대한 유지해줘.
+다른 사람처럼 변형하지 말고 실제 인물 느낌을 자연스럽게 살려줘.
+AI 미인형 얼굴, 과한 성형 느낌, 플라스틱 피부 표현 금지.
+
+[스타일]
+깔끔하고 담백한 배우 오디션 프로필 무드.
+미니멀하고 절제된 스타일링.
+고급 스튜디오 인물사진 느낌.
+
+[헤어 &amp; 메이크업]
+헤어와 메이크업은 전체 스튜디오 무드에 맞게 자연스럽고 깔끔하게 정돈.
+과한 색조·과한 광채 없이 깨끗하고 은은한 표현.
+피부결은 유지하면서 자연스럽게 정리된 피부 표현.
+
+[배경]
+화이트~라이트그레이 계열의 미니멀 스튜디오 배경.
+자연광이 드는 깨끗하고 밝은 공간감 표현.
+
+[조명]
+맑은 자연광을 받은 듯한 깨끗하고 화사한 피부톤.
+은은하게 밝은 하이라이트와 부드러운 그림자 표현.
+전체적으로 공기감 있고 투명한 분위기.
+
+[구도 &amp; 포즈]
+배우 오디션 프로필 사진 같은 자연스럽고 편안한 포즈.
+몸은 살짝 사선, 얼굴은 카메라를 차분하게 응시.
+어깨 힘을 뺀 relaxed posture.
+waist-up medium shot composition.
+얼굴이 과하게 확대되지 않은 자연스러운 상반신 비율 유지.
+
+natural actor profile pose, relaxed shoulders, airy mood, Korean actor profile photo style
+</code></pre></div>
+<h2>5. 취업 증명사진</h2>
+<figure><img src="../../assets/g/profile-image-gpt/05.jpg" alt="" loading="lazy"><figcaption>승무원 합격사진 느낌의 단정한 취업 증명사진</figcaption></figure>
+
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">업로드한 원본 사진을 한국 취업용 증명사진 스타일로 변환해줘.
+
+원본 인물의 얼굴 특징과 분위기는 최대한 유지하되,
+실제 한국 증명사진 스튜디오에서 자연스럽게 정리한 것처럼 깔끔하고 단정하게 보정해줘.
+다른 사람처럼 변형하거나 AI 미인형 얼굴로 바꾸지 말 것.
+눈 확대, 과한 V라인, 코 높이기, 피부 과보정 금지.
+
+승무원 합격사진처럼 단정하고 신뢰감 있는 분위기.
+과한 화보 느낌 없이 자연스럽고 현실적인 취업 증명사진 무드.
+
+[헤어]
+잔머리 없이 깔끔하게 넘긴 취업용 로우번(low bun).
+자연스러운 가르마, 윤기 있는 머릿결.
+양쪽 귀가 자연스럽게 보이도록 정리.
+
+[메이크업]
+깔끔하고 자연스러운 한국 취업 메이크업.
+눈썹과 눈 라인은 또렷하지만 과하지 않게 정돈.
+입술은 MLBB 계열의 은은한 로즈핑크 혈색 컬러.
+
+[표정]
+입은 자연스럽게 다문 상태.
+입꼬리가 살짝 올라간 은은한 미소.
+정면 카메라를 차분하게 응시.
+
+[의상]
+검은색 자켓 + 일자 네크라인 흰색 이너.
+깔끔하고 전문적인 취업 증명사진 스타일.
+
+[조명]
+그림자 거의 없는 균일한 증명사진 스튜디오 조명.
+피부톤은 스튜디오 조명을 받은 것처럼 맑고 자연스럽게 화사하게 표현.
+
+[피부]
+플라스틱 같은 AI 피부 표현 금지.
+실제 DSLR 촬영 같은 자연스러운 피부결 유지.
+깨끗하고 정돈된 수준의 자연스러운 보정만 적용.
+
+[구도]
+정면 증명사진 구도.
+양쪽 귀가 자연스럽게 보이도록 얼굴 중심 대칭.
+목과 어깨 라인 단정하게 정렬.
+얼굴이 과하게 커 보이지 않도록 안정감 있는 얼굴·어깨 비율 유지.
+
+[배경]
+화이트 또는 연한 그레이·블루톤 증명사진 배경.
+
+realistic Korean job profile photo, natural skin texture, soft studio lighting, centered composition
+</code></pre></div>
+<details class="toggle">
+<summary>남성용 헤어·메이크업·의상 교체 문구</summary>
+<div class="tbody">
+<p>아래 세 블록으로 바꿔 넣어주세요.</p>
+<p>[헤어] 깔끔하게 정돈된 남성 헤어 스타일. 자연스러운 다운펌 느낌의 단정한 가르마 또는 짧은 리젠트 스타일. 잔머리 없이 헤어라인 정돈. 윤기 있지만 과한 스타일링 없이 자연스럽고 깔끔한 머릿결 표현.</p>
+<p>[메이크업] 과한 메이크업 없이 피부톤과 피부결만 자연스럽게 정돈. 다크서클·붉은기·트러블은 은은하게 보정하되 실제 피부 질감 유지. 입술은 자연스러운 혈색 정도만 표현. 남성 취업 증명사진 특유의 깨끗하고 단정한 인상.</p>
+<p>[의상] 검은색 또는 네이비 자켓. 화이트 셔츠 또는 깔끔한 라운드넥/일자넥 이너. 심플하고 전문적인 남성 취업 증명사진 스타일. 넥라인과 어깨 라인이 단정하게 정리된 느낌.</p>
+</div>
+</details>
+<h2>✔ 결과가 잘 안 나오면 이렇게 바꿔보세요</h2>
+<ul>
+<li><b>살짝 거리감 있는 상반신 사진</b>이 결과가 더 안정적인 경우가 많아요</li>
+<li>얼굴이 너무 가까운 광각 셀카보다는 <b>왜곡 없는 기본 카메라 사진</b> 추천</li>
+<li>무표정보다 <b>입꼬리가 살짝 올라간 자연스러운 표정</b>이 훨씬 잘 나와요</li>
+<li>어둡거나 흔들린 사진보다 <b>밝고 선명한 사진</b>일수록 결과가 안정적이에요</li>
+<li>원하는 분위기의 의상/헤어가 있는 사진을 넣으면 GPT가 그 무드를 같이 반영하는 경우가 많아요</li>
+</ul></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI모델 영상 만드는 법 (2단계) | onji.lab</title><meta name="description" content="GPT로 캐릭터 시트를 만들고 시댄스 2.0으로 얼굴이 흔들리지 않는 AI 모델 브이로그 영상을 만드는 2단계 방법.">
+<meta property="og:title" content="AI모델 영상 만드는 법 (2단계) | onji.lab"><meta property="og:description" content="GPT로 캐릭터 시트를 만들고 시댄스 2.0으로 얼굴이 흔들리지 않는 AI 모델 브이로그 영상을 만드는 2단계 방법."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">AI 영상</span><span>2026. 07. 28</span><span>7분</span></p>
+<h1>AI모델 영상 만드는 법 (2단계)</h1><p class="lead">GPT로 캐릭터 시트를 만들고 시댄스 2.0으로 얼굴이 흔들리지 않는 AI 모델 브이로그 영상을 만드는 2단계 방법.</p><p class="tools">사용 툴 · ChatGPT, Seedance 2.0</p>
+<div class="body"><aside class="callout">
+<p>AI 콘텐츠를 학습하시는 데 도움이 되길 바랍니다 :)</p>
+</aside>
+<h2>STEP 1. GPT로 캐릭터 시트 제작</h2>
+<p>가장 먼저 영상에 등장할 <b>주인공의 얼굴</b>을 일관성 있게 만드는 단계입니다.</p>
+<p>캐릭터 시트는 한 인물을 여러 각도에서 정리한 이미지로, 이후 영상 생성 단계에서 얼굴이 흔들리지 않도록 기준을 잡아줍니다. 이 시트가 있어야 여러 장면을 만들어도 같은 인물로 인식됩니다.</p>
+<p>캐릭터의 <b>여러 각도를 모은 콜라주 이미지</b>를 업로드하고, 아래 프롬프트를 함께 입력합니다. 한 장보다 여러 각도를 함께 제공하면 얼굴 일관성이 더 안정적으로 나옵니다.</p>
+<p><b>사용 사이트:</b> <a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT (GPT Image)</a></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 콜라주 이미지 속 인물의 여러 각도를 참고하여, 동일 인물의 캐릭터 시트를 제작한다. 최우선 원칙은 인물 동일성(Identity Consistency)이며, 작품 퀄리티나 창의적 해석보다 원본 얼굴 재현이 훨씬 중요하다. 얼굴 변형률 0%를 목표로 한다.
+
+절대 기준(Reference): 첨부 이미지 속 얼굴이 절대적 기준이다. 얼굴을 새로 디자인·재해석·평균화하거나, 더 예쁘게 보정하거나, 다른 사람처럼 바꾸지 않는다. 얼굴형·이목구비(눈·눈썹·코·입·귀)·비율·턱선·광대·피부톤·헤어스타일·헤어라인·머리 볼륨·얼굴 고유의 비대칭까지 원본 그대로 유지한다. 모든 각도에서 즉시 동일 인물로 인식되어야 한다.
+
+구성 (6컷):
+- 상단: ① 얼굴 정면 ② 얼굴 45도 ③ 얼굴 측면
+- 하단: ④ 전신 정면 ⑤ 전신 45도 ⑥ 전신 후면
+
+모든 컷에서 얼굴·헤어스타일·의상·체형·신체 비율·액세서리를 동일하게 유지한다. 의상은 모든 컷에서 흰 반팔 티셔츠·청바지·흰 스니커즈로 통일한다(얼굴·체형 판단에 방해되지 않는 심플한 기본 착장).
+
+스타일: 순백색 배경, 균일한 스튜디오 조명(강한 그림자 없음), 사실적 고품질(Photorealistic), 고해상도. 텍스트·라벨·워터마크·불필요한 소품 없이 캐릭터 시트처럼 정갈하게 배열한다.
+
+각도가 어려운 컷에서도 새로운 얼굴을 만들지 말고 원본 얼굴 구조를 그대로 재구성한다.
+</code></pre></div>
+<h2>STEP 2. 시댄스 2.0으로 영상 생성</h2>
+<p>만들어둔 캐릭터 시트를 시댄스에 넣고, 프롬프트를 입력해 영상을 생성하는 단계입니다.</p>
+<p>프롬프트에는 <b>원하는 배경, 장면, 동작, 카메라 효과</b>를 적고, 얼굴이 바뀌지 않도록 <b>일관성을 강제하는 문구</b>를 함께 넣어줍니다.</p>
+<p>AI 툴은 같은 프롬프트를 넣어도 결과가 조금씩 다릅니다. <b>아래 구조를 참고하되, 자신의 캐릭터와 영상 스타일에 맞게 재구성하시는 걸 추천드립니다.</b></p>
+<p>시댄스 2.0은 프롬프트 반영률이 높아 원하는 장면을 구체적으로 적는 게 좋지만, 너무 길면 오히려 해석을 잘못하는 경우가 많습니다. 구체적으로 적되 핵심만 담는 것을 권장합니다.</p>
+<p><b>사용 사이트:</b></p>
+<ul>
+<li><a href="https://dreamina.capcut.com/tools/seedance-2-0" target="_blank" rel="noopener">Dreamina — Seedance 2.0 (공식)</a></li>
+<li><a href="https://higgsfield.ai/seedance/2.0" target="_blank" rel="noopener">Higgsfield — Seedance 2.0</a></li>
+</ul>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">iPhone으로 찍은 일상 브이로그. 밝고 생기 있는 분위기. 세로 9:16.
+
+인물:
+@image1 속 인물을 주인공으로, 화면이 흔들리거나 전환돼도 얼굴형·이목구비(눈·눈썹·코·입·귀)·비율·턱선·광대·피부톤·검정 단발·헤어라인·머리 볼륨·얼굴 고유의 비대칭까지 그대로 유지. 얼굴을 새로 디자인·재해석·평균화하거나 더 예쁘게 보정 금지. @image1의 흰 티·청바지·정면 포즈·흰 배경은 무시. 20대 여성, 검정 나시(민소매)에 긴바지 파자마.
+
+배경:
+저녁, 좁은 원룸형 주방. 따뜻한 실내조명. 흰 상부장 찬장, 싱크대, 가스레인지, 벽에 걸린 조리도구.
+
+장면:
+0~4초 — 찬장을 열고 봉지 라면(@image2와 일치)을 꺼낸다. 팔을 뻗고 상체를 기울이는 온몸 동작. 라면을 카메라 쪽으로 내밀어 흔들며, 눈웃음과 장난스러운 표정으로 밝게 &quot;오늘은 이걸로 때운다!&quot; 초점은 라면과 얼굴 사이를 오간다. 찬장 여닫는 소리, 봉지 부스럭 소리.
+
+4~10초 — 가스레인지 앞에서 면을 반으로 부숴 냄비에 넣고 조리한다. 손을 움직이며 카메라를 향해 &quot;근데 저, AI 모델이거든요? 딱 2단계면 만들 수 있어요.&quot; 젓가락으로 냄비 가장자리를 탁탁 두드리며 카메라를 정면으로 응시, 확신에 찬 밝은 톤으로 &quot;바로 알려드릴게요!&quot; 젓가락을 든 채 살짝 웃는 동작에서 정지. 초점은 냄비와 얼굴 사이를 오간다. 물 끓는 소리, 젓가락 두드리는 소리.
+
+카메라:
+iPhone 촬영, 처음부터 끝까지 자잘한 노이즈. 카메라 고정, 자동 초점. 1~1.5초 간격으로 툭툭 끊기는 편집. 목소리는 마이크에 가까워 밝게 들린다.
+
+금지:
+색보정·필름 룩·시네마틱 룩·뷰티 필터·CG 질감 금지. 모공·유분광 등 실제 피부 질감 유지. 말할 때 입가 주름 강조 금지. 화면 내 텍스트 금지.
+</code></pre></div>
+<h2>잘 안 나올 때 (자주 겪는 문제)</h2>
+<details class="toggle">
+<summary>얼굴이 자꾸 바뀌거나 다른 사람이 돼요</summary>
+<div class="tbody">
+<p>캐릭터 시트가 얼굴을 충분히 잡아주지 못한 경우입니다. 참고 이미지의 얼굴이 선명한지, 정면·측면·45도 등 여러 각도가 콜라주에 골고루 들어가 있는지 점검하세요. 특정 부위(눈매·코 등)가 계속 흔들리면 그 부위를 콕 집어 한 줄 추가하는 것이 스무 개를 나열하는 것보다 효과적입니다.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>화면이 전환되거나 움직일 때 얼굴이 무너져요</summary>
+<div class="tbody">
+<p>영상에서 가장 흔한 문제입니다. 인물 항목에 "화면이 흔들리거나 전환돼도 얼굴을 그대로 유지"라는 조건이 들어가 있는지 확인하세요. 이 문구가 움직임 중 얼굴 붕괴를 눌러줍니다.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>동작이 어색해요 (얼굴·입만 움직임)</summary>
+<div class="tbody">
+<p>동작 지시가 너무 단순하면 AI가 몸은 정지시키고 얼굴만 움직입니다. 팔·상체가 함께 움직이는 온몸 동작을 구체적으로 적어주세요. (예: "라면을 꺼낸다" → "팔을 뻗고 상체를 기울여 라면을 꺼내 카메라 쪽으로 내민다")</p>
+</div>
+</details>
+<details class="toggle">
+<summary>표정이 어색하거나 입가 주름이 신경 쓰여요</summary>
+<div class="tbody">
+<p>표정·감정을 지정하지 않으면 어정쩡한 표정이 나옵니다. "눈웃음", "확신에 찬 밝은 톤"처럼 명시하고, 금지 항목에 "입가 주름 강조 금지"를 넣어주세요.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>너무 매끄럽고 AI 티가 나요</summary>
+<div class="tbody">
+<p>"자잘한 노이즈", "자동 초점", "색보정·필터 금지", "실제 피부 질감(모공·유분광) 유지" 같은 무보정 조건을 넣으면 실제 촬영 영상처럼 자연스러워집니다.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>한 번에 완벽하게 안 나와요</summary>
+<div class="tbody">
+<p>같은 프롬프트로도 결과가 매번 다릅니다. 조금씩 수정해가며 여러 번 생성하고 가장 좋은 결과를 고르는 것이 정상적인 과정입니다. 반영이 잘 안 되면 지시가 중복되거나 문장이 장황하지 않은지 점검하고, 불필요한 부분을 덜어내 보세요.</p>
+</div>
+</details></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>

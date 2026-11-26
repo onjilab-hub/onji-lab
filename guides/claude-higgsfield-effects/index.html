@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude × Higgsfield | 명령어로 영상 효과 넣기 | onji.lab</title><meta name="description" content="클로드에 힉스필드를 연결해 자막·인물 뒤 글자·그래프 같은 효과를 명령어로 넣는 방법.">
+<meta property="og:title" content="Claude × Higgsfield | 명령어로 영상 효과 넣기 | onji.lab"><meta property="og:description" content="클로드에 힉스필드를 연결해 자막·인물 뒤 글자·그래프 같은 효과를 명령어로 넣는 방법."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">자동화</span><span>2026. 10. 30</span><span>10분</span></p>
+<h1>Claude × Higgsfield | 명령어로 영상 효과 넣기</h1><p class="lead">클로드에 힉스필드를 연결해 자막·인물 뒤 글자·그래프 같은 효과를 명령어로 넣는 방법.</p><p class="tools">사용 툴 · Claude, Higgsfield MCP</p>
+<div class="body"><aside class="callout">
+<p><b>MCP 연결 → 영상 업로드 → 명령어 입력 → 효과가 들어간 영상</b><br />인물 뒤에 뜨는 글자, 말에 맞춰 움직이는 자막, 숫자 그래프까지. 클로드에 힉스필드를 연결하고, 원하는 효과를 명령어로 요청해보세요.</p>
+</aside>
+<p><b>Claude와 Higgsfield를 연결해 기존 영상에 효과를 넣는 방법</b>을 정리했어요.</p>
+<p><b>클로드가 요청을 이해하고 힉스필드의 도구를 호출하는 방식</b>이에요. MCP는 둘을 연결해주는 통로라고 생각하면 됩니다. 아래 효과 명령어는 <b>이미 만들어둔 영상을 편집하는 용도</b>이므로, 먼저 말하는 영상 하나를 준비해주세요.</p>
+<h2>✅ 시작 전 준비물</h2>
+<ol>
+<li>Claude 계정</li>
+<li><a href="https://higgsfield.ai/s/higgsfield-commands-in-claude-ig-onji-lab-KyCGTL" target="_blank" rel="noopener">Higgsfield 계정</a> — MCP 이용이 가능한 구독 또는 체험 상태</li>
+<li>효과를 넣을 <b>대사가 포함된 영상</b></li>
+<li>화면에 표시할 단어·이름·숫자 — 순위표라면 항목과 분류 기준도 준비</li>
+</ol>
+<aside class="callout">
+<p><b>체험과 비용은 연결 화면에서 확인해주세요.</b><br />신규 사용자 대상 <b>MCP 3일 무료 체험</b> 가능하나, 계정·시점에 따라 표시되는 혜택이 달라질 수 있어요. 신청 화면에서 대상 여부, 카드 등록, 제공 크레딧과 체험 종료 후 유료 전환 조건을 확인해주세요.</p>
+</aside>
+<h2>✅ 제작 순서 한눈에 보기</h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>할 일</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STEP 1</td>
+<td>힉스필드 MCP 연결 페이지 열기</td>
+</tr>
+<tr>
+<td>STEP 2</td>
+<td>클로드에 커넥터 추가 → 계정 연결</td>
+</tr>
+<tr>
+<td>STEP 3</td>
+<td>연결 확인 → 원본 영상 업로드</td>
+</tr>
+<tr>
+<td>STEP 4</td>
+<td>원하는 효과 명령어 입력</td>
+</tr>
+<tr>
+<td>STEP 5</td>
+<td>크기·위치·타이밍 수정</td>
+</tr>
+<tr>
+<td>STEP 6</td>
+<td>완성 영상 저장 → 릴스에 사용</td>
+</tr>
+</tbody>
+</table>
+<h2>STEP 1. 힉스필드 MCP 연결 페이지 열기</h2>
+<ol>
+<li>👉 <a href="https://higgsfield.ai/s/higgsfield-commands-in-claude-ig-onji-lab-KyCGTL" target="_blank" rel="noopener">Higgsfield MCP 바로가기</a>에 접속해요.</li>
+<li>연결할 앱으로 <b>Claude</b>를 선택해요.</li>
+<li>화면의 <b>Connect to Claude / 연결 안내</b>를 확인해요.</li>
+<li>아래 MCP 서버 주소를 복사해요.</li>
+</ol>
+<p><b>📋 연결할 MCP 서버 주소</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">https://mcp.higgsfield.ai/mcp
+</code></pre></div>
+<p>💡 위 주소는 <b>클로드의 커넥터 설정에 붙여넣는 주소</b>예요. 브라우저에서 주소만 여는 것으로 연결이 끝나지는 않아요.</p>
+<h2>STEP 2. 클로드에 커넥터 추가 → 계정 연결하기</h2>
+<ol>
+<li><a href="https://claude.ai/" target="_blank" rel="noopener">Claude</a>에 로그인해요.</li>
+<li><b>Customize → Connectors</b>를 열어요. 화면에 따라 <b>설정 → 커넥터</b>로 보일 수 있어요.</li>
+<li><b>+ Add → Add custom connector</b>를 선택해요.</li>
+<li>이름과 주소를 아래처럼 입력해요.</li>
+<li>추가 후 <b>Connect</b>를 누르고, 열리는 Higgsfield 창에서 로그인·접근 허용을 진행해요.</li>
+<li>클로드로 돌아와 <b>Higgsfield가 연결됨 상태인지</b> 확인해요.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>입력 항목</th>
+<th>넣을 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>이름</td>
+<td>Higgsfield</td>
+</tr>
+<tr>
+<td>서버 URL</td>
+<td><code>https://mcp.higgsfield.ai/mcp</code></td>
+</tr>
+</tbody>
+</table>
+<aside class="callout">
+<p><b>API 키를 따로 발급할 필요는 없어요.</b><br />이 가이드는 클로드 웹·데스크톱의 MCP 커넥터 방식이에요. 팀 계정에서 커넥터 추가 메뉴가 보이지 않으면 관리자 권한이나 조직 설정을 확인해주세요.</p>
+</aside>
+<h2>STEP 3. 연결 확인 → 원본 영상 업로드하기</h2>
+<p><b>① 현재 대화에서 Higgsfield 켜기</b></p>
+<p>새 대화를 열고 입력창의 <b>+ 메뉴 → Connectors</b>에서 Higgsfield가 켜져 있는지 확인해요. 메뉴 이름과 위치는 클로드 버전에 따라 달라질 수 있어요.</p>
+<p><b>📋 연결 확인 요청문</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">Higgsfield 도구를 사용해서 내 현재 크레딧 잔액을 확인해줘.
+아직 이미지나 영상은 생성하지 마.
+</code></pre></div>
+<p><b>② 편집할 영상 올리기</b></p>
+<p>💡 처음에는 <b>한 사람이 정면을 보고 말하는 짧은 영상</b>이 편해요. 인물 뒤 텍스트나 인물 외곽선 효과를 쓰려면 얼굴과 어깨가 잘 보이는 구도를 준비해주세요.</p>
+<h2>STEP 4. 원하는 효과 명령어 입력하기</h2>
+<p><b>명령어 + 화면에 넣을 내용 + 효과가 나올 시점</b>을 함께 적으면 원하는 결과를 설명하기 쉬워요. 아래 예시의 이름·문구·숫자는 내 영상에 맞게 바꿔주세요.</p>
+<h3>📌 명령어 7개 한눈에 보기</h3>
+<table>
+<thead>
+<tr>
+<th>명령어</th>
+<th>만들어주는 효과</th>
+<th>함께 알려주면 좋은 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/tier-list</code></td>
+<td>항목이 등급별로 들어가는 티어표</td>
+<td>표 제목, 등급, 항목, 등장 시점</td>
+</tr>
+<tr>
+<td><code>/text-behind</code></td>
+<td>인물 뒤로 겹쳐 보이는 큰 글자</td>
+<td>표시할 단어, 시작 대사 또는 시간</td>
+</tr>
+<tr>
+<td><code>/captions</code></td>
+<td>말에 맞춰 따라오는 자막</td>
+<td>언어, 스타일, 강조색</td>
+</tr>
+<tr>
+<td><code>/glass-graph</code></td>
+<td>시작값에서 끝값으로 변하는 그래프</td>
+<td>제목, 시작값, 끝값</td>
+</tr>
+<tr>
+<td><code>/freeze-frame</code></td>
+<td>인물을 강조하는 정지 화면·외곽선·이름표</td>
+<td>이름, 짧은 소개, 시작 시점</td>
+</tr>
+<tr>
+<td><code>/over-the-shoulder</code></td>
+<td>인물 어깨 뒤로 배치되는 전·후 비교 카드</td>
+<td>전·후 값과 각각의 설명</td>
+</tr>
+<tr>
+<td><code>/grade-wipe</code></td>
+<td>색감 보정 전·후를 보여주는 와이프 전환</td>
+<td>시작 시점, 전·후 라벨</td>
+</tr>
+</tbody>
+</table>
+<p><b>👇 필요한 항목을 펼쳐서 복사하세요.</b></p>
+<details class="toggle">
+<summary>📊 /tier-list — 티어표 만들기</summary>
+<div class="tbody">
+<p><b>어떤 효과인가요?</b><br />툴이나 항목이 S·A·B처럼 지정한 줄에 순서대로 들어가는 표예요.</p>
+<p><b>📋 복사할 요청문</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">/tier-list
+
+업로드한 영상에 티어표를 넣어줘.
+표 제목: 내가 자주 쓰는 AI 툴
+
+S: [가장 자주 쓰는 툴 이름]
+A: [자주 쓰는 툴 이름]
+B: [가끔 쓰는 툴 이름]
+
+분류 기준은 성능 순위가 아니라 나의 사용 빈도야.
+대사에서 각 이름을 말하는 시점에 해당 줄로 등장시켜줘.
+원본 음성은 유지해줘.
+</code></pre></div>
+<p>💡 <b>대사에서 앱 이름을 모두 읽지 않아도 돼요.</b> 그럴 때는 "1초부터 아래 순서대로 등장시켜줘"처럼 시간을 직접 지정해주세요. 한 줄에는 최대 4개, 전체에는 최대 12개 항목을 넣을 수 있어요. 로고를 정확히 쓰려면 이미지도 함께 제공해주세요. 로고를 찾지 못한 항목은 글자로 표시될 수 있어요.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>🔤 /text-behind — 인물 뒤에 큰 글자 넣기</summary>
+<div class="tbody">
+<p><b>어떤 효과인가요?</b><br />글자 일부가 인물에게 가려지면서, 인물 뒤 공간에 놓인 것처럼 보여요.</p>
+<p><b>📋 복사할 요청문 예시</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">/text-behind
+
+업로드한 영상에서 &quot;AI에게 시키세요&quot;라고 말하는 순간,
+인물 뒤에 &quot;AI&quot;를 크게 보여줘.
+흰색 글자로 약 2초 동안 표시해줘.
+원본 음성은 유지해줘.
+</code></pre></div>
+<p>💡 긴 문장보다 <b>짧은 단어 하나</b>로 시작해보세요. 타이밍이 다르면 "영상 시작 1초에 나타나게 해줘"처럼 수정할 수 있어요.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>💬 /captions — 말에 맞춰 따라오는 자막 넣기</summary>
+<div class="tbody">
+<p><b>어떤 효과인가요?</b><br />영상 속 말을 인식해 자막을 만들고, 발화 시점에 맞춰 보여줘요.</p>
+<p><b>📋 복사할 요청문 예시</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">/captions
+
+업로드한 영상의 한국어 대사를 그대로 자막으로 만들어줘.
+classic 스타일로 적용해줘.
+강조색은 민트색으로 하고,
+얼굴을 가리지 않는 화면 하단에 배치해줘.
+원본 음성은 유지해줘.
+</code></pre></div>
+<p>💡 지원하는 자막 스타일에는 <b>spotlight · cascade · classic</b>이 있어요. 완성 후 툴 이름과 고유명사가 제대로 적혔는지 확인해주세요.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>📈 /glass-graph — 숫자가 올라가는 그래프 넣기</summary>
+<div class="tbody">
+<p><b>어떤 효과인가요?</b><br />시작값과 끝값을 넣으면 숫자 변화가 보이는 그래프 카드가 만들어져요.</p>
+<p><b>📋 복사할 요청문 예시</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">/glass-graph
+
+업로드한 영상에서 &quot;0%였다가 80%&quot;라고 말하는 부분에
+숫자 변화 그래프를 넣어줘.
+
+제목: 사용률 · 예시
+시작값: 0%
+끝값: 80%
+표시 시간: 약 3초
+강조색: 민트색
+
+얼굴을 가리지 않게 배치하고 원본 음성을 유지해줘.
+</code></pre></div>
+<p>💡 <b>0% → 80%는 효과를 설명하기 위한 예시</b>예요. 실제 콘텐츠에서는 확인한 수치로 바꾸고, 숫자와 단위가 대사·자막·그래프에서 일치하도록 해주세요.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>🙋 /freeze-frame — 인물 소개 효과 넣기</summary>
+<div class="tbody">
+<p><b>어떤 효과인가요?</b><br />잠깐 멈추는 화면에 인물 외곽선과 이름표가 들어가고, 배경이 흑백으로 바뀌며 인물이 강조돼요.</p>
+<p><b>📋 복사할 요청문 예시</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">/freeze-frame
+
+업로드한 영상에서 &quot;온지랩입니다&quot;라고 말하는 순간
+인물을 강조하는 소개 효과를 넣어줘.
+
+이름: 온지랩
+짧은 소개: AI 활용 튜토리얼
+표시 시간: 약 2.5초
+
+원본 음성은 유지해줘.
+</code></pre></div>
+<p>💡 이름과 소개는 짧게 적어주세요. 효과가 끝나면 재생이 이어지므로 대사와 화면이 자연스럽게 연결되는지 확인해요.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>↔️ /over-the-shoulder — 전·후 비교 카드 넣기</summary>
+<div class="tbody">
+<p><b>어떤 효과인가요?</b><br />인물 어깨 뒤에 비교 카드가 나타나, 작업 전후의 차이를 보여줘요.</p>
+<p><b>📋 복사할 요청문 예시</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">/over-the-shoulder
+
+업로드한 영상에서 &quot;전에는 0개였지만&quot;이라고 말하는 부분에
+전·후 비교 카드를 넣어줘.
+
+이전 라벨: 편집 전
+이전 값: 효과 0개
+이후 라벨: 편집 후
+이후 값: 효과 3개
+
+약 3초 동안 표시하고 원본 음성은 유지해줘.
+</code></pre></div>
+<p>💡 숫자뿐 아니라 짧은 비교 문구도 사용할 수 있어요. <b>비교 값은 실제 영상 내용에 맞춰</b> 바꿔주세요.</p>
+</div>
+</details>
+<details class="toggle">
+<summary>🎨 /grade-wipe — 색감 보정 전·후 보여주기</summary>
+<div class="tbody">
+<p><b>어떤 효과인가요?</b><br />밝은 빛이 화면을 지나가며 보정된 색감이 드러나는 효과예요.</p>
+<p><b>📋 복사할 요청문 예시</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">/grade-wipe
+
+업로드한 영상에서 &quot;색감은 이렇게 바꿔볼게요&quot;라고 말하는 순간
+색감 보정 전·후를 보여주는 와이프 전환을 넣어줘.
+
+이전 라벨: 원본
+이후 라벨: 보정 후
+전환 시간: 약 3초
+
+원본 음성은 유지해줘.
+</code></pre></div>
+<p>💡 정해진 보정 스타일을 보여주는 효과예요. 완성 후 피부색이 자연스러운지 확인해주세요.</p>
+</div>
+</details>
+<p><b>처음에는 자막이나 인물 뒤 텍스트 하나부터 해보세요.</b> 원하는 효과가 나온 다음 크기와 타이밍을 맞추면, 내 콘텐츠에 어울리는 편집으로 만들어갈 수 있어요.</p>
+<details class="toggle">
+<summary>🔗 연결 링크와 공식 안내</summary>
+<div class="tbody">
+<ul>
+<li><a href="https://higgsfield.ai/mcp" target="_blank" rel="noopener">Higgsfield MCP 연결 페이지</a></li>
+<li><a href="https://claude.ai/" target="_blank" rel="noopener">Claude 바로가기</a></li>
+<li><a href="https://higgsfield.ai/blog/Generate-AI-Videos-From-Claude-with-Higgsfield-MCP" target="_blank" rel="noopener">Higgsfield 공식 Claude 연결 가이드</a></li>
+<li><a href="https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent" target="_blank" rel="noopener">Higgsfield 공식 도움말</a></li>
+<li><a href="https://higgsfield.ai/creator-hub/changelog" target="_blank" rel="noopener">Higgsfield 체험 관련 공식 공지</a></li>
+</ul>
+<p>내용 확인: 2026-10-30. 화면 구성, 명령어와 체험 조건은 업데이트될 수 있어요.</p>
+</div>
+</details></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>

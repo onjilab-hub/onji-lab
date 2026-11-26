@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>마누스로 릴스자판기 만드는 법 | onji.lab</title><meta name="description" content="내 인스타 계정 분석부터 릴스 소재를 뽑아주는 &#x27;콘텐츠 자판기&#x27; 사이트까지, 마누스로 만든 6단계 과정과 프롬프트.">
+<meta property="og:title" content="마누스로 릴스자판기 만드는 법 | onji.lab"><meta property="og:description" content="내 인스타 계정 분석부터 릴스 소재를 뽑아주는 &#x27;콘텐츠 자판기&#x27; 사이트까지, 마누스로 만든 6단계 과정과 프롬프트."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">자동화</span><span>2026. 07. 31</span><span>7분</span></p>
+<h1>마누스로 릴스자판기 만드는 법</h1><p class="lead">내 인스타 계정 분석부터 릴스 소재를 뽑아주는 &#x27;콘텐츠 자판기&#x27; 사이트까지, 마누스로 만든 6단계 과정과 프롬프트.</p><p class="tools">사용 툴 · Manus</p>
+<div class="body"><aside class="callout">
+<p>AI 콘텐츠를 학습하시는 데 도움이 되길 바랍니다 :)</p>
+</aside>
+<p>AI로 내 인스타 콘텐츠 전략을 자동화하는 사이트를 직접 만든 과정을 공유합니다. 아이디어를 말하면 마누스가 전체 과정을 안내해주기 때문에 처음 해보시는 분들도 충분히 따라할 수 있어요.</p>
+<h2>전체 흐름</h2>
+<table>
+<thead>
+<tr>
+<th>단계</th>
+<th>작업</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1️⃣</td>
+<td>내 계정 콘텐츠 전략 보고서 만들기</td>
+</tr>
+<tr>
+<td>2️⃣</td>
+<td>사이트 아이디어 프롬프트 작성</td>
+</tr>
+<tr>
+<td>3️⃣</td>
+<td>기획안 수정 + 화면지시서 확인</td>
+</tr>
+<tr>
+<td>4️⃣</td>
+<td>사이트 키비주얼 만들기</td>
+</tr>
+<tr>
+<td>5️⃣</td>
+<td>오류 잡기</td>
+</tr>
+<tr>
+<td>6️⃣</td>
+<td>최종 확인</td>
+</tr>
+</tbody>
+</table>
+<h2>1️⃣ 내 계정 콘텐츠 전략 보고서</h2>
+<p>마누스로 사이트를 만들기 전에, 내 계정의 성공 패턴을 파악하기 위한 성과 보고서를 요청합니다.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">내 Instagram 계정을 연결하세요. 
+당신이 나의 개인 AI 콘텐츠 전략가 역할을 하여 매주 월요일 오전 9시에 정기 작업으로 Instagram 성과 보고서를 제공하고, 
+다음 주를 위한 완전 최적화된 콘텐츠 계획을 함께 제공해 주기를 바랍니다.
+
+먼저 내 Instagram 커넥터를 활성화하세요. 
+연결된 계정이 없다면, 간단히 계정을 연결하라고 제안하세요. 또한 계정을 아직 연결하지 않아도 되고 샘플 데이터를 사용하여 분석할 수 있다는 점을 간단히 언급하세요.
+
+# STEP 1 
+1부: 성과 분석
+과거 20개 게시물의 데이터를 가져오세요. 각 게시물마다 다음을 보고하세요: 도달, 노출, 참여율, 저장, 공유, 프로필 방문 수, 팔로워 증가. 최고의 성과를 낸 3개의 게시물을 식별하고 계정 평균에 비해 성과가 저조한 게시물을 표시하세요.
+
+분석은 다음과 같이 구성하세요:
+- 요약 보고서: 전체 계정 상태와 주간 트렌드 (성장, 안정, 또는 참여 감소)에 대한 간단한 한 문단 요약.
+- 최고 성과: 성과가 가장 우수한 게시물 3개 및 성공 요인 (형식, 훅, 시간, 해시태그)에 대한 설명과 더 강화하라는 추천.
+- 성과 저조: 성과가 미흡한 게시물과 구체적인 진단 (잘못된 시간, 약한 훅, 과포화된 해시태그, 형식 부적합).
+- 사용자 통찰: 팔로워가 가장 활동적인 시간, 선호 콘텐츠 형식 (Reel, 캐러셀, 정적 콘텐츠) 및 주목할 만한 인구학적 변화.
+
+2부: 다음 주 콘텐츠 계획
+분석을 바탕으로 다음을 포함한 7일 콘텐츠 캘린더를 생성하세요:
+- 요일별 추천 게시물 유형 (Reel, 캐러셀, 정적 콘텐츠, Story)
+- 사용자 활동에 따른 최적의 게시 시간
+- 게시물별 캡션 초안 및 관련 해시태그 10개
+- 이번 주 성과가 좋았던 콘텐츠에서 영감을 받은 테마 또는 훅
+
+스타일리시하고 세련된 슬라이드 데크로 이를 표현하세요.
+다음 주 게시물을 미리 준비하고 Manus가 이를 즉시 일정 잡아 게시하도록 원하는지 제안하세요. Instagram 게시물을 바로 준비해 언제든 게시할 수 있도록 만드세요.
+
+# STEP 2 
+이 단계가 끝났거나 내가 거부한 경우, 분석 정보를 Google Drive, Notion에 저장하거나, 이메일 또는 Slack을 통해 다른 사람에게 보낼지를 묻습니다. 내가 이 중 하나라도 동의하면 커넥터를 활성화하고 진행하세요. 만약 연결된 계정이 없다면, 간단히 계정을 연결하라고 제안하세요.
+
+1단계가 완료된 후에만 2단계를 수행하세요.
+</code></pre></div>
+<h2>2️⃣ 사이트 아이디어 프롬프트</h2>
+<p>마누스에게 원하는 사이트를 설명합니다. 원하는 기능 방향을 구체적으로 적을수록 원하는 결과에 가까운 기획안이 나옵니다. "이러이러한 기능이 필요해"로 시작하면 마누스가 먼저 기획안을 제안하고, 검토 후 승인하면 개발을 시작합니다.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">&lt;콘텐츠 자판기&gt; 웹사이트로 만들어보자.
+
+나 말고도 외부 사용자가 사이트에 접속해서 기능을 사용할 수 있게 만들어야 해.
+웹사이트 디자인도 자판기처럼 만들어보자.
+
+내가 생각하는 구조는 이래:
+- 음료 자판기처럼 3×3 9개 항목이 자판기 안에 담겨 있는 형태
+- 돈 넣는 곳 = 분석할 인스타그램 계정 또는 영상 링크 (여러 개 입력 가능하면 좋겠어)
+- 분석 완료 후 버튼을 누르면 원하는 결과물이 뚝딱 나오는 방식
+- 버튼은 콘텐츠 종류별로 구분:
+  릴스 소재(제목) / 릴스 훅 / 릴스 스크립트 / 카드뉴스 소재 등
+
+이건 내 아이디어니까, 사람들이 실제로 반응할 만한 방향으로 더 디벨롭해줘.
+계획 먼저 보고 다음 단계로 넘어가는 방식으로 진행하자.
+</code></pre></div>
+<figure><img src="../../assets/g/manus-reels-machine/01.jpg" alt="" loading="lazy"><figcaption>마누스 제안 화면</figcaption></figure>
+
+<figure><img src="../../assets/g/manus-reels-machine/02.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/manus-reels-machine/03.jpg" alt="" loading="lazy"></figure>
+
+<h2>3️⃣ 기획안 수정 + 화면 기획서 받기</h2>
+<p>마누스가 기획안을 제안하면 꼼꼼히 검토하고, 마음에 안 드는 부분은 구체적으로 수정을 요청합니다. 명확하게 지시할수록 좋습니다.</p>
+<ul>
+<li>✅ 컨셉 변경 요청 → "여러 콘텐츠가 아닌, 릴스 콘텐츠로 좁혀서"</li>
+<li>✅ 새로운 아이디어 요청 → "기존 게시물 주제 반복 말고 새로운 주제로"</li>
+<li>✅ 산출물 형식 지정 → "패턴 반영 3개 + 트렌드 1개", "트렌드 리포트 형태로 바로 복사 가능하도록", "어떤 성공 게시물 패턴을 참고했는지 명시해줘"</li>
+</ul>
+<figure><img src="../../assets/g/manus-reels-machine/04.jpg" alt="" loading="lazy"><figcaption>마누스 제안 화면</figcaption></figure>
+
+<figure><img src="../../assets/g/manus-reels-machine/05.jpg" alt="" loading="lazy"><figcaption>마누스 화면 기획서</figcaption></figure>
+
+<h2>4️⃣ 사이트 키비주얼 만들기</h2>
+<p>사이트의 첫인상을 결정하는 메인 비주얼을 설정합니다. 원하는 분위기와 색상을 설명하면 마누스가 디자인 방향을 잡아줍니다.</p>
+<h3>1. 첫 사이트 결과물</h3>
+<p>나쁘진 않지만, 인스타그램의 색감과 톤을 더 살리고 싶어서 수정을 요청했습니다.</p>
+<figure><img src="../../assets/g/manus-reels-machine/06.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/manus-reels-machine/07.jpg" alt="" loading="lazy"></figure>
+
+<h3>2. 원하는 디자인 방향 지시</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">홈 화면 디자인을 바꿔줘.
+
+[원하는 분위기]
+- 자판기 컨셉 — 버튼을 누르면 콘텐츠가 나오는 느낌
+- 색상: 인스타그램 감성 (핑크→오렌지→퍼플 그라디언트)
+- 폰트: 깔끔하고 현대적인 느낌
+
+[메인 카피]
+&quot;이번 주 릴스, 자판기에서 뽑아가세요&quot;
+
+[구성 요소]
+- 자판기 이미지 (AI 생성)
+- 시작하기 버튼 (크고 명확하게)
+- 3단계 프로세스 간략 설명
+</code></pre></div>
+<figure><img src="../../assets/g/manus-reels-machine/08.jpg" alt="" loading="lazy"><figcaption>수정된 키비주얼</figcaption></figure>
+
+<h2>5️⃣ 오류 잡기</h2>
+<p>사이트를 실제로 실행해보면 예상치 못한 오류가 나옵니다. 오류 메시지를 캡처해 마누스에게 붙여넣으면 대부분 바로 수정해줍니다.</p>
+<table>
+<thead>
+<tr>
+<th>유형</th>
+<th>상황</th>
+<th>해결 방법</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>데이터 오류</td>
+<td>실제 계정 데이터가 아닌 샘플 데이터가 들어가 있는 경우</td>
+<td>"실제 데이터로 교체해줘" 요청</td>
+</tr>
+<tr>
+<td>UI 오류</td>
+<td>결과물이 화면에 제대로 표시되지 않는 경우</td>
+<td>스크린샷 첨부 후 수정 요청</td>
+</tr>
+<tr>
+<td>로직 오류</td>
+<td>패턴이 제대로 적용되지 않는 경우</td>
+<td>"근거 게시물을 명시해줘" 요청</td>
+</tr>
+<tr>
+<td>계속 안될 때</td>
+<td>오류를 잡았다고 하지만 계속되는 경우</td>
+<td>"전체 프로세스 다시 검수. 1,2,3단계별 산출물을 먼저 나에게 승인 받고 난 뒤에 완료 처리해줘."</td>
+</tr>
+</tbody>
+</table>
+<h2>6️⃣ 최종 확인</h2>
+<p>전체 파이프라인을 처음부터 끝까지 한 번 실행해봅니다.</p>
+<ul>
+<li>[ ] 1단계: 계정 분석 결과에 성공 패턴(훅/썸네일/CTA 공식)이 나오는지</li>
+<li>[ ] 2단계: 트렌드 3개가 최신 내용인지</li>
+<li>[ ] 3단계: 릴스 4개 + 7일 캘린더가 나오는지</li>
+<li>[ ] 각 릴스 카드에 스크립트 초안이 포함되어 있는지</li>
+<li>[ ] 근거 게시물이 실제 내 계정 데이터 기반인지</li>
+</ul></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>

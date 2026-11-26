@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>브랜드 영상 만들기 | onji.lab</title><meta name="description" content="집에서 찍은 제품 사진으로 무드 이미지 → 스토리보드 → 9컷 장면 → 시댄스 2.0 숏폼 브랜드 영상까지 만드는 워크플로우.">
+<meta property="og:title" content="브랜드 영상 만들기 | onji.lab"><meta property="og:description" content="집에서 찍은 제품 사진으로 무드 이미지 → 스토리보드 → 9컷 장면 → 시댄스 2.0 숏폼 브랜드 영상까지 만드는 워크플로우."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">이커머스</span><span>2026. 06. 23</span><span>7분</span></p>
+<h1>브랜드 영상 만들기</h1><p class="lead">집에서 찍은 제품 사진으로 무드 이미지 → 스토리보드 → 9컷 장면 → 시댄스 2.0 숏폼 브랜드 영상까지 만드는 워크플로우.</p><p class="tools">사용 툴 · Higgsfield Soul2, ChatGPT, Seedance 2.0</p>
+<div class="body"><p>집에서 찍은 제품 사진을 활용해 무드 이미지 → 스토리보드 → 브랜드 영상까지 만드는 워크플로우입니다.</p>
+<p>이번 예시는 <b>패션 제품 사진</b>을 활용해 <b>모델 촬영 비하인드컷 콘셉트의 숏폼 브랜드 영상</b>으로 제작했습니다.</p>
+<h2>전체 제작 흐름</h2>
+<ol>
+<li>집에서 제품 사진 촬영하기</li>
+<li>Higgsfield Soul2로 브랜드 무드 이미지 만들기</li>
+<li>ChatGPT로 제품을 이미지에 자연스럽게 적용하기</li>
+<li>ChatGPT로 10~15초 광고 영상 스토리보드 만들기</li>
+<li>ChatGPT로 장면에 사용될 컷 만들기</li>
+<li>Seedance 2.0에 장면컷과 영상 프롬프트 입력하기</li>
+</ol>
+<h2>Step 01. Higgsfield Soul2로 무드 이미지 만들기</h2>
+<p>제품과 어울리는 브랜드 무드 이미지를 먼저 만듭니다.</p>
+<ul>
+<li><b>콘셉트</b> 패션 모델 스튜디오 촬영장 비하인드컷</li>
+<li><b>배경</b> 심플한 스튜디오</li>
+<li><b>무드</b> 감각적인 패션 광고, 플래시 조명, 빠른 포즈 전환, 하이패션 캠페인 느낌</li>
+</ul>
+<p>아래 프롬프트를 제품과 브랜드 무드에 맞게 수정해서 사용하세요.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">Premium fashion campaign photography, tanned foreign female model wearing the uploaded baseball cap, face mostly hidden beneath the cap brim, only the lower half of the face visible, relaxed lips, mysterious and effortless mood, both arms raised naturally adjusting hair behind the head, clean white ribbed tank top, warm bronzed skin tone, direct flash photography, subtle film grain texture, strong shadow cast on seamless white studio wall, editorial fashion aesthetic, minimalist composition, centered framing, chest-up portrait, natural body posture, luxury streetwear campaign, authentic skin texture, soft glossy lips, dark hair, ultra realistic, high detail, sharp focus, magazine editorial style, 85mm lens, high-end fashion photography, 4K
+</code></pre></div>
+<h2>Step 02. ChatGPT로 이미지 확장 &amp; 제품 적용하기</h2>
+<p>Soul2로 만든 무드 이미지에 제품이 자연스럽게 들어가도록 ChatGPT를 활용합니다. 제품의 형태, 색상, 로고, 디테일이 바뀌지 않도록 요청하는 것이 중요합니다.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첫 번째 이미지의 전체적인 분위기, 색감, 조명 방향, 광원의 색온도, 그림자의 방향과 강도, 질감, 공기감을 그대로 유지해줘.
+
+두 번째 이미지(또는 두 번째·세 번째 이미지)의 제품을 첫 번째 이미지의 공간에 자연스럽게 합성해줘. 
+
+합성 시 반드시 지켜야 할 조건:
+
+- 제품에 첫 번째 이미지의 조명과 그림자를 그대로 입혀줘. 광원 방향에 맞게 하이라이트와 음영을 제품 표면에 반영해줘.
+- 제품의 반사와 재질감은 유지하되, 주변 환경의 색감이 제품 표면에 은은하게 반사되도록 해줘.
+- 제품이 공간에 실제로 놓여 있는 것처럼 바닥이나 표면에 자연스러운 그림자가 생기게 해줘.
+- 배경의 색감 톤과 무드는 변경하지 말고, 제품만 해당 무드에 녹아들게 합성해줘.
+- 합성 경계선이 티 나지 않게 자연스럽게 블렌딩해줘.
+
+결과물은 광고용 제품 사진처럼 완성도 있게 만들어줘.
+</code></pre></div>
+<h2>Step 03. ChatGPT로 스토리보드 만들기</h2>
+<p>완성된 이미지를 기반으로 10~15초 분량의 숏폼 브랜드 영상 스토리보드를 구성합니다. 스토리보드는 컷 구성을 위한 참고용이며 의도에 맞게 수정·디벨롭이 필요합니다.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 이미지를 기준으로 10~15초 분량의 광고 영상 스토리보드를 구성해줘.
+
+컨셉: 패션 모델 스튜디오 촬영장 비하인드컷
+배경: 스튜디오
+
+영상은 숏폼 광고 스타일로 구성하고,
+컷 전환은 빠르고 감각적으로 연출해줘.
+
+컷은 총 9컷으로 나눠줘.
+각 컷당 아주 간략히 요약해줘.
+
+포함할 요소:
+- 제품 또는 인물 중심 장면
+- 클로즈업 장면
+- 디테일 강조 장면
+- 분위기 전환 장면
+- 브랜드 엔딩 장면
+
+출력은 표 형식으로 작성해줘.
+
+항목:
+1. 컷
+2. 시간
+3. 장면 요약
+4. 카메라/전환
+</code></pre></div>
+<h3>예시 스토리보드</h3>
+<table>
+<thead>
+<tr>
+<th>컷</th>
+<th>시간</th>
+<th>장면 요약</th>
+<th>카메라/전환</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0.0~1.3초</td>
+<td>플래시와 함께 모델 정면 등장</td>
+<td>정면 고정샷 + Flash Cut</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.3~2.6초</td>
+<td>제품 전면 로고 클로즈업</td>
+<td>빠른 Zoom-in</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2.6~3.9초</td>
+<td>손으로 제품을 살짝 조정</td>
+<td>45도 클로즈업 + Whip Pan</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3.9~5.2초</td>
+<td>모델이 고개를 숙이며 포즈 전환</td>
+<td>Medium Shot + Match Cut</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5.2~6.5초</td>
+<td>제품 옆면 로고와 스티치 디테일</td>
+<td>Macro Tracking</td>
+</tr>
+<tr>
+<td>6</td>
+<td>6.5~8.0초</td>
+<td>플래시가 연속으로 터지며 포즈 전환</td>
+<td>Strobe Cut</td>
+</tr>
+<tr>
+<td>7</td>
+<td>8.0~9.7초</td>
+<td>강한 그림자가 생기는 스튜디오 무드 컷</td>
+<td>Zoom-out + Hard Cut</td>
+</tr>
+<tr>
+<td>8</td>
+<td>9.7~12.0초</td>
+<td>모델이 제품을 잡고 히어로 포즈</td>
+<td>Slow Push-in</td>
+</tr>
+<tr>
+<td>9</td>
+<td>12.0~15.0초</td>
+<td>브랜드 로고/카피 엔딩</td>
+<td>Fade-in + Flash Out</td>
+</tr>
+</tbody>
+</table>
+<h2>Step 04. ChatGPT로 장면컷 만들기</h2>
+<p>스토리보드를 기반으로 장면 컷을 구성합니다.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 이미지를 기준으로 3x3 그리드의 9컷 콜라주 이미지를 생성해줘.
+
+제품은 변경하지 말고 그대로 유지해줘. 각도 등 변경할 때는 2번째, 3번째 이미지 참고해서 유지해.
+
+동일 인물, 동일 제품, 동일 의상, 동일 배경, 동일 조명, 동일 카메라 구도 유지.
+
+각 컷은 아래와 같이 자연스럽게 변화시켜줘.
+
+1. 정면 응시
+2. 살짝 미소
+3. 왼쪽 45도
+4. 오른쪽 45도
+5. 측면
+6. 아래를 보는 모습
+7. 모자를 만지는 동작
+8. 뒤돌아보다 카메라 보기
+9. 자연스럽게 걷는 자세
+
+패션 브랜드 룩북(Contact Sheet) 스타일.
+
+제품 디테일과 로고는 모든 컷에서 동일하게 유지.
+
+광고 촬영 현장의 셀렉트 시트처럼 구성.
+</code></pre></div>
+<h2>Step 05. Seedance 2.0으로 영상 만들기</h2>
+<p>스토리보드와 장면 이미지를 활용해 Seedance 2.0에서 영상을 생성합니다. 장면컷을 넣고 아래 영상 프롬프트를 입력하세요.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">패션 모델 스튜디오 촬영 현장의 비하인드 컷 영상.
+영상에는 @image_1이 @image_2에 담긴 컷 9개 포즈를 취하는 모습이 담겨있습니다.
+각 장면에는 하나의 포즈만 담겨있어야 합니다. 
+영상의 흐름은 스타일리쉬하게. 모든 장면 전환은 매끄러워야 합니다. 
+빠른 줌인, 휩팬, 플래시 컷, 스냅 줌, 매치 컷 등 틱톡에서 인기있는 전환 기법를 활용하세요.
+</code></pre></div></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>

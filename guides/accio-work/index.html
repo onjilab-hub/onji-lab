@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accio Work 활용 가이드 | onji.lab</title><meta name="description" content="제품 소싱부터 업체 비교, 샘플 문의, 상품페이지 기획, 판매 이미지 제작까지 Accio Work로 진행한 흐름.">
+<meta property="og:title" content="Accio Work 활용 가이드 | onji.lab"><meta property="og:description" content="제품 소싱부터 업체 비교, 샘플 문의, 상품페이지 기획, 판매 이미지 제작까지 Accio Work로 진행한 흐름."><meta property="og:image" content="../../assets/profile.jpg">
+<link rel="icon" href="../../assets/profile.jpg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>:root{--bg:#FFFFFF;--soft:#F6F5F2;--ink:#111111;--ink2:#3A3833;--mute:#8A867D;--hair:#E8E6E1;--butter:#F2E4BC;--butter-ink:#5E4A12;--forest:#3B4A3A;--forest-soft:#E3EBE1;--hot:#FBE2DE;--hot-ink:#B4321F;
+--font:"Pretendard Variable",Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color-scheme:light}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+a{color:inherit}
+.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--ink);color:#fff;padding:8px 12px;border-radius:8px;z-index:10}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.topin{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:900;font-size:19px;text-decoration:none;letter-spacing:-.02em}
+.tr{display:flex;gap:6px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:700;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:7px 12px;color:var(--ink);background:#fff}
+.pill svg{width:15px;height:15px}.pill.dark{background:var(--ink);color:#fff;border-color:var(--ink)}.pill:hover{border-color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:14px;font-weight:600;border:1px solid var(--hair);background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink)}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn:focus-visible,.tile:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+/* 1면 */
+.hero{padding:40px 24px 22px}
+.hero h1{margin:0;font-size:clamp(32px,6vw,54px);line-height:1.15;letter-spacing:-.04em;font-weight:900}
+.prof{display:flex;align-items:center;gap:12px;margin-top:18px}
+.prof img{flex:0 0 auto;border-radius:50%;border:1px solid var(--hair)}
+.prof b{display:flex;align-items:center;gap:8px;font-size:15px}.prof p{margin:2px 0 0;font-size:14.5px;color:var(--ink2);line-height:1.45}
+.live{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink2);border:1px solid var(--hair);border-radius:999px;padding:2px 8px}
+.live i{width:6px;height:6px;border-radius:50%;background:#2E9E5B}
+.tiles{display:flex;flex-wrap:wrap;gap:6px}
+.tile{font:inherit;font-size:13.5px;font-weight:700;background:#fff;border:1px solid var(--hair);border-radius:999px;padding:6px 12px;cursor:pointer;color:var(--ink);white-space:nowrap}
+.tile span{font-weight:600;color:var(--mute);font-size:12px;margin-left:2px}
+.tile:hover{border-color:var(--ink)}
+.tile[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}.tile[aria-pressed="true"] span{color:#BDB9B0}
+.bar{display:flex;align-items:center;gap:12px;margin:14px 0 14px}
+
+.search{flex:1 1 auto;max-width:420px}.search input{width:100%;font:inherit;font-size:15px;padding:9px 16px;border:1px solid var(--hair);border-radius:999px;background:#fff;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--hair);border-radius:16px;padding:10px 14px 10px 10px;min-height:96px}
+a.card:hover{border-color:var(--ink)}
+.thumb{position:relative;flex:0 0 76px;width:76px;height:76px;border-radius:12px;overflow:hidden;background:var(--soft)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .lab{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:6px;text-align:center;font-weight:900;font-size:11px;letter-spacing:-.03em;line-height:1.2;word-break:keep-all;overflow-wrap:normal}
+.t1{background:#F2E4BC;color:#5E4A12}.t2{background:#E3EBE1;color:#2F3D2E}.t3{background:#E6E4F2;color:#38335E}.t4{background:#F7E3D7;color:#6B3417}.t5{background:#DFEDF2;color:#1F4A57}.t6{background:#FBE2DE;color:#8E2A1B}
+.ctxt{flex:1;min-width:0}
+.cm{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;color:var(--mute);margin:0 0 3px}.cm .cat{color:var(--forest);font-weight:700}
+.soonb{font-size:11px;font-weight:700;color:var(--butter-ink);background:var(--butter);padding:0 7px;border-radius:999px}
+.ct{margin:0;font-size:15.5px;font-weight:700;line-height:1.4;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chev{flex:0 0 auto;color:#B8B4AA;font-size:18px}
+.card.soon .ct{color:var(--ink2)}
+.more{display:flex;margin:34px auto 0}
+.empty{color:var(--mute);padding:24px 0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--forest-soft);color:var(--forest)}.tag.hot{background:var(--hot);color:var(--hot-ink)}
+/* 상세 */
+.art{padding-top:30px;padding-bottom:40px;max-width:760px}
+.back{font-size:14px;color:var(--mute);text-decoration:none}.back:hover{color:var(--ink)}
+.meta{display:flex;gap:10px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin:20px 0 8px}.meta .cat{color:var(--forest);font-weight:700}
+.art h1{margin:0;font-size:clamp(26px,4.4vw,36px);line-height:1.3;letter-spacing:-.03em}
+.lead{font-size:17.5px;color:var(--ink2);margin:12px 0 0}
+.tools{font-size:14px;color:var(--mute);margin:10px 0 0}
+.promo-mini{display:inline-flex;gap:8px;align-items:center;margin-top:14px;font-size:14px;font-weight:600;text-decoration:none;border:1px solid var(--hair);border-radius:999px;padding:6px 14px 6px 8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts.big{margin-top:24px}
+.codebox{display:flex;align-items:center;gap:8px;background:var(--soft);border:1px dashed var(--ink2);border-radius:12px;padding:8px 8px 8px 14px;margin:18px 0 0}
+.codebox code{flex:1;font-size:17px;font-weight:700;letter-spacing:.04em}
+.body{margin-top:28px;border-top:1px solid var(--hair);padding-top:8px;font-size:16.5px;line-height:1.8}
+.body h2{font-size:22px;margin:44px 0 12px;letter-spacing:-.02em;line-height:1.4}
+.body h3{font-size:18px;margin:28px 0 8px}
+.body p{margin:12px 0}.body ol,.body ul{padding-left:22px}.body li{margin:6px 0}
+.body table{width:100%;border-collapse:collapse;font-size:15px;margin:16px 0;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+.body th,.body td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}.body th{background:var(--soft);font-weight:700}
+.callout{background:#FBF5E3;border:1px solid #F0E3BC;color:#3F3212;border-radius:16px;padding:14px 18px;margin:18px 0}.callout p{margin:4px 0}
+.code{position:relative;margin:14px 0}
+.code pre{margin:0;background:#1F211E;color:#EDEBE4;border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word}
+.code code{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+.copy{position:absolute;top:10px;right:10px;font:inherit;font-size:12.5px;font-weight:700;background:var(--butter);color:#3F3212;border:0;border-radius:999px;padding:5px 12px;cursor:pointer}
+.toggle{border:1px solid var(--hair);border-radius:14px;margin:16px 0;padding:0 16px}
+.toggle summary{cursor:pointer;font-weight:700;padding:14px 0}.toggle[open] summary{border-bottom:1px solid var(--hair)}
+.tbody{padding-bottom:8px}
+figure{margin:18px 0}figure img{max-width:100%;border-radius:12px;border:1px solid var(--hair)}
+figure.ph{height:180px;border:1px dashed #D5D1C7;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--mute);font-size:14px;background:var(--soft)}
+.endcta{margin-top:48px;background:var(--soft);border-radius:20px;padding:20px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.endcta img{border-radius:50%}.endcta p{margin:0;flex:1;min-width:200px}.endcta span{font-size:13.5px;color:var(--mute)}
+.foot{margin-top:72px;border-top:1px solid var(--hair);padding:26px 0 40px;font-size:14px;color:var(--mute)}
+.fin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot p{margin:3px 0}.fl{color:var(--ink);font-weight:700}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:1000px){.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}@media (max-width:760px){.grid{grid-template-columns:1fr}}
+@media (max-width:640px){.wrap{padding:0 16px}.topin{height:56px}.hero{padding:26px 16px 16px}.hero h1{font-size:30px}
+.tiles{gap:5px}.tile{font-size:12.5px;padding:5px 10px}.tile span{font-size:11px}
+.grid{grid-template-columns:1fr;gap:8px}.card{min-height:80px;padding:8px 12px 8px 8px;gap:12px}.thumb{flex-basis:64px;width:64px;height:64px}.ct{font-size:15px}
+.search{max-width:none}.pill{padding:6px 10px;font-size:12.5px}}
+figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
+.body .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0}
+.body .pair img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair);margin:0}
+</style></head><body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+<header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
+<div class="tr"><a class="pill" href="mailto:jinspringg@gmail.com"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>협업·문의</a><a class="pill dark" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<main id="main"><article class="wrap art">
+<a class="back" href="../../">← 전체 목록</a>
+<p class="meta"><span class="cat">이커머스</span><span>2026. 09. 29</span><span>8분</span></p>
+<h1>Accio Work 활용 가이드</h1><p class="lead">제품 소싱부터 업체 비교, 샘플 문의, 상품페이지 기획, 판매 이미지 제작까지 Accio Work로 진행한 흐름.</p><p class="tools">사용 툴 · Accio Work</p>
+<div class="body"><aside class="callout">
+<p>영상에서 실제로 진행한 <b>제품 소싱부터 판매 이미지 제작까지의 Accio Work 활용 흐름</b>과 사용 프롬프트를 담았습니다.</p>
+</aside>
+<h2>🎁 전용 코드</h2>
+<p><b>전용 코드: STARTGROUND</b></p>
+<p>전용 코드를 사용하면 <b>Pro 플랜 첫 달을 1달러에 이용할 수 있습니다.</b></p>
+<h2>작업 흐름</h2>
+<p><b>제품 이미지 준비 → 공급업체 소싱 → 업체·가격 비교 → 제품 스펙 검증 → 샘플/OEM 문의 → 상품페이지 기획 → 판매 이미지 제작</b></p>
+<p>처음부터 모든 업무를 한 번에 맡기기보다는, 결과를 확인하면서 다음 업무를 이어서 요청하는 방식으로 사용했습니다.</p>
+<h2>💻 먼저, 데스크톱 앱 설치하기</h2>
+<p>Accio Work는 데스크톱 앱을 다운로드하면 실제 업무 환경에 맞춰 더욱 편리하게 활용할 수 있어, <b>데스크톱 버전 사용을 권장드립니다.</b></p>
+<p><b>Windows와 Mac 모두 다운로드할 수 있습니다.</b></p>
+<ol>
+<li>아래 공식 다운로드 페이지에 접속합니다.</li>
+<li><b>데스크톱용 다운로드</b>를 누릅니다.</li>
+<li>사용 중인 기기에 맞춰 <b>macOS(Apple Silicon 또는 Intel)</b> 또는 <b>Windows(64비트)</b> 버전을 선택해 설치합니다.</li>
+<li>설치 후 Accio Work에 로그인하면 바로 사용할 수 있습니다.</li>
+</ol>
+<p>🔗 <b>다운로드:</b> <a href="https://www.accio.com/work" target="_blank" rel="noopener">Accio Work 데스크톱 앱</a></p>
+<figure><img src="../../assets/g/accio-work/01.jpg" alt="" loading="lazy"></figure>
+
+<h2>01. 제품 소싱하기</h2>
+<p>먼저 판매하고 싶은 제품의 이미지를 넣고 <b>Accio 소싱 전문가</b>에게 비슷한 제품과 공급업체를 찾아달라고 요청했습니다.</p>
+<h3>첫 프롬프트</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">첨부한 이미지와 동일하거나 유사한 알루미늄 접이식 노트북 거치대를 1688과 Alibaba에서 찾아줘. 판매량, 평점, 공급업체 신뢰도, 재구매율을 기준으로 신뢰할 수 있는 공급업체 5곳을 선정하고, 추천순으로 정렬해 비교표와 엑셀로 정리해줘. 각 업체별로 MOQ, 단가, 배송 조건, 주문 방법, 제품 특장점, 상품 링크, 샘플 문의가 가능한 연락 경로를 포함해줘. 또한 한국까지 들여올 때 발생하는 예상 배송비, 관부가세, 부가세, 인증비 및 기타 부대비용을 모두 반영해 업체별 실제 예상 총원가를 계산하고, 한국 스마트스토어 판매 수수료까지 고려했을 때 이익률 30%가 남는 적정 판매가도 함께 제안해줘.
+</code></pre></div>
+<p>이렇게 요청하면 <b>공급업체 비교 → MOQ → 공급가 → 예상 원가 → 판매가</b>까지 한 번에 정리할 수 있습니다.</p>
+<figure><img src="../../assets/g/accio-work/02.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/accio-work/03.jpg" alt="" loading="lazy"></figure>
+
+<h3>여기서 끝내지 않고 추가로 확인했어요</h3>
+<p>처음 나온 결과를 그대로 사용하기보다 실제 상품페이지를 열어보면서 하나씩 확인했습니다. 특히 공급업체를 추천받을 때는 <b>반드시 상품페이지 링크를 함께 요청</b>하는 걸 추천해요. AI가 제품의 소재나 스펙을 비슷한 모델과 혼동할 수도 있기 때문에, 최종 후보 제품은 실제 상품페이지의 소재·규격·판매 조건을 직접 확인하는 과정이 필요했습니다.</p>
+<p>제가 추가로 요청한 내용은 이런 것들이었어요.</p>
+<ul>
+<li>MOQ를 100개로 늘렸을 때의 공급단가 비교</li>
+<li>1688과 Alibaba의 가격 차이가 발생하는 이유 정리</li>
+<li>1688 검색 시 상단에 뜨는 제품들이 반영되지 않은 이유</li>
+<li>제품 소재와 실제 상품페이지 스펙 재확인</li>
+<li>배송비와 기타 비용까지 포함한 예상 총원가 재계산</li>
+</ul>
+<h3>유용했던 추가 프롬프트</h3>
+<p><b>MOQ별 가격을 다시 비교하고 싶을 때</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">MOQ를 100개 정도로 늘렸을 때 업체별 공급단가가 얼마인지 다시 비교해줘. 소량 주문 가격과 100개 주문 가격을 함께 보여주고, 이런 조건들을 모두 고려했을 때 추천하는 업체 순서대로 정리해줘. 비교표에는 반드시 실제 상품페이지 링크를 포함해줘.
+</code></pre></div>
+<p><b>제품 스펙을 다시 검증하고 싶을 때</b></p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">추천한 제품의 실제 상품페이지 내용을 다시 확인해줘. 소재, 제품 구조, MOQ, 단가 등 추천 근거가 상품페이지에 실제로 명시되어 있는지 확인하고, 확인할 수 없는 내용은 추정하지 말고 따로 표시해줘.
+</code></pre></div>
+<h2>02. 샘플 + 로고 각인 문의하기</h2>
+<p>판매할 제품 후보가 정해진 뒤, Accio에서 공급업체에 바로 샘플과 OEM 가능 여부를 문의하는 걸 추천해줍니다.</p>
+<figure><img src="../../assets/g/accio-work/04.jpg" alt="" loading="lazy"></figure>
+
+<p>제안 그대로 진행하면 영문 + 한국어로 문의서를 제작해줍니다.</p>
+<figure><img src="../../assets/g/accio-work/05.jpg" alt="" loading="lazy"></figure>
+
+<h2>03. 상품페이지 구성 기획하기</h2>
+<p>다음 업무도 Accio Work가 추천 해준대로 가보겠습니다.</p>
+<figure><img src="../../assets/g/accio-work/06.jpg" alt="" loading="lazy"></figure>
+
+<h3>수정 예시</h3>
+<p>추천한대로 클릭하면, 상품 특징에 따라 프롬프트가 자동 입력됩니다. 이대로 진행했으나 소재를 비교에만 치중되어 수정을 요청했습니다.</p>
+<figure><img src="../../assets/g/accio-work/07.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/accio-work/08.jpg" alt="" loading="lazy"></figure>
+
+<h3>결과 예시</h3>
+<p>이미지 제작 요청을 위해 아래 기획안을 전체 복사합니다.</p>
+<figure><img src="../../assets/g/accio-work/09.jpg" alt="" loading="lazy"></figure>
+
+<h2>04. 판매 이미지 제작 요청</h2>
+<p>상세페이지 기획이 끝난 뒤에는 <b>Accio 디자인 전문가</b>에게 판매 이미지를 제작해달라고 요청했습니다.</p>
+<h3>처음 사용한 방식</h3>
+<p>원본 상품페이지와 앞에서 만든 상세페이지 기획안을 함께 전달하고, 각 영역에 필요한 이미지를 만들어달라고 요청했습니다.</p>
+<h3>프롬프트 예시</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">아래 원본 상품 페이지의 제품을 소싱해 판매할 예정이야.상세페이지 기획안에 맞춰 각 영역별 판매 이미지를 제작해줘. 텍스트는 내가 추후 직접 편집할 예정이니 이미지에는 텍스트를 넣지 말아줘.먼저 메인 이미지 콘셉트 3가지를 제안하고 각각 예시 이미지를 한 장씩 만들어줘.제품의 형태, 구조, 소재와 컬러는 원본 상품과 동일하게 유지해줘.
+</code></pre></div>
+<h2>05. 마음에 드는 디자인 톤을 정한 뒤 확장</h2>
+<p>처음부터 모든 이미지를 만들기보다 먼저 메인 이미지 시안을 받아본 뒤, 마음에 드는 톤을 하나 골라 나머지 상세페이지 이미지까지 확장했습니다.</p>
+<figure><img src="../../assets/g/accio-work/10.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/accio-work/11.jpg" alt="" loading="lazy"></figure>
+
+<figure><img src="../../assets/g/accio-work/12.jpg" alt="" loading="lazy"></figure>
+
+<p>이번 작업에서는 <b>메탈릭 스튜디오 톤</b>을 선택한 뒤 이렇게 요청했어요.</p>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">시안 2번의 분위기와 배경 톤을 기준으로 나머지 상세페이지 영역의 이미지도 만들어줘. 전체 이미지의 조명, 배경, 제품 컬러와 분위기는 통일해줘.
+</code></pre></div>
+<figure><img src="../../assets/g/accio-work/13.jpg" alt="" loading="lazy"></figure>
+
+<p>이 방식이 좋은 이유는 상세페이지 전체를 한 번에 생성했을 때 이미지마다 분위기가 달라지는 문제를 줄일 수 있기 때문입니다.</p>
+<h2>06. 제품이 변형되지 않았는지 꼭 확인</h2>
+<p>이미지 생성 과정에서 가장 중요하게 확인했던 부분입니다. 처음 만들어진 이미지 중 일부는 분위기는 좋았지만 <b>실제 판매할 제품의 상판 구조, 지지대, 힌지 등 디테일이 다른 제품처럼 변형</b>되어 있었습니다.<br />이럴 때는 원본 제품 이미지를 다시 기준으로 잡고 수정 요청을 했습니다.</p>
+<h3>수정 프롬프트 예시</h3>
+<div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">0,0,0 이미지에 판매하려는 실제 제품과 제품 형태가 달라졌어. 첨부한 원본 제품 이미지를 다시 기준으로 사용하고, 제품의 상판 형태, 지지대 구조, 힌지 위치, 하판 형태, 실리콘 패드 등 실제 제품의 구조는 변경하지 말아줘. 배경, 조명, 촬영 구도만 변경하고 제품 자체는 원본과 동일하게 유지해줘.
+</code></pre></div>
+<h2>07. 소구 포인트마다 다른 연출컷 만들기</h2>
+<p>한 장의 제품 이미지를 반복해서 사용하는 대신, <b>각 셀링 포인트가 직관적으로 보이는 촬영 구도</b>를 따로 요청했습니다.</p>
+<p>예를 들어 쿨링 기능을 설명할 때는 단순한 제품 단독 컷이 아니라 노트북을 실제로 올려놓고 <b>노트북 하판과 거치대 통풍 구조가 보이는 각도</b>로 제작했습니다.</p>
+<figure><img src="../../assets/g/accio-work/14.jpg" alt="" loading="lazy"></figure>
+
+<h2>제가 써보면서 느낀 활용 팁</h2>
+<h3>① 한 번에 모든 걸 시키지 않기</h3>
+<p><b>소싱 → 검증 → 업체 컨택 → 상품 기획 → 이미지 제작</b> 순서대로 나눠서 진행하면 각 단계의 결과를 확인하고 수정하기 쉽습니다.</p>
+<h3>② 상품 링크를 꼭 같이 요청하기</h3>
+<p>소싱 결과를 텍스트만 보고 결정하지 말고 실제 상품페이지를 직접 확인하세요. 특히 소재, MOQ, 가격, 제품 구조처럼 판매에 직접 영향을 주는 정보는 한 번 더 검증하는 걸 추천합니다.</p>
+<h3>③ 첫 결과를 완성본으로 생각하지 않기</h3>
+<p>결과를 본 뒤 "이 조건을 추가해줘", "이 제품은 제외해줘", "100개 기준으로 다시 계산해줘"처럼 계속 이어서 요청할수록 원하는 결과에 가까워졌습니다.</p>
+<h3>④ 디자인은 제품 일관성을 가장 먼저 체크하기</h3>
+<p>AI 이미지가 예쁘게 나와도 실제 판매 제품과 형태가 다르면 사용할 수 없습니다. 원본 이미지를 계속 참조시키고, 제품은 유지한 채 <b>배경·구도·조명만 변경</b>하도록 요청하는 게 좋습니다.</p>
+<h2>Accio Work 사용하기</h2>
+<p>🔗 <b>Accio Work:</b> <a href="https://www.accio.com/work" target="_blank" rel="noopener">www.accio.com/work</a></p>
+<p>🎁 <b>전용 코드: STARTGROUND</b> — 전용 코드를 사용하면 <b>Pro 플랜 첫 달을 1달러에 이용할 수 있습니다.</b></p></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+</article></main>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<script>(function(){
+function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
+function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-copy]");if(b){var c=b.parentNode.querySelector("code");if(c)copy(c.textContent.replace(/\n$/,""));return}
+  var t=e.target.closest("[data-copytext]");if(t)copy(t.getAttribute("data-copytext"))});
+var el=document.getElementById("data");if(!el)return;
+var D=JSON.parse(el.textContent),cat="",q="",PAGE=30,shown=PAGE,grid=document.getElementById("grid"),more=document.getElementById("more"),empty=document.getElementById("empty");
+var TONE={"AI 영상":"t1","AI 이미지":"t3","자동화":"t2","이커머스":"t4","음성":"t5","할인소식":"t6"};
+function esc(s){return String(s||"").replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function card(g){var th=g.i?'<img src="'+esc(g.i)+'" alt="" loading="lazy">':'<span class="lab '+(TONE[g.c]||"t1")+'">'+esc(g.l||g.c)+"</span>";
+  var inner='<div class="thumb">'+th+'</div><div class="ctxt"><div class="cm"><span class="cat">'+esc(g.c)+"</span><span>"+esc(g.d)+"</span>"+(g.r?"":'<span class="soonb">옮기는 중</span>')+'</div><p class="ct">'+esc(g.t)+'</p></div>'+(g.r?'<span class="chev" aria-hidden="true">›</span>':"");
+  return g.r?'<a class="card" href="'+esc(g.h)+'"'+(g.x?' target="_blank" rel="noopener"':"")+'>'+inner+"</a>":'<div class="card soon">'+inner+"</div>"}
+function render(){var k=q.trim().toLowerCase(),L=D.filter(function(g){return (!cat||g.c===cat)&&(!k||(g.t+" "+g.u+" "+g.c+" "+g.l).toLowerCase().indexOf(k)>=0)});
+  grid.innerHTML=L.slice(0,shown).map(card).join("");
+  var left=L.length-Math.min(shown,L.length);more.hidden=left<=0;more.textContent="더 보기 ("+left+")";empty.hidden=L.length>0}
+document.querySelectorAll(".tile").forEach(function(c){c.addEventListener("click",function(){cat=c.getAttribute("data-cat");shown=PAGE;document.querySelectorAll(".tile").forEach(function(x){x.setAttribute("aria-pressed",x===c?"true":"false")});render()})});
+document.getElementById("q").addEventListener("input",function(e){q=e.target.value;shown=PAGE;render()});
+more.addEventListener("click",function(){shown+=PAGE;render()});
+render();
+})();
+</script></body></html>
