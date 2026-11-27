@@ -108,10 +108,18 @@ figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
 button.pill{font-family:inherit;line-height:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .flink{appearance:none;border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
 .pill.mail,.flink,.mmenu a{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.collab{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--butter);border-radius:18px;padding:18px 20px}
+.collab b{display:block;font-size:17px;letter-spacing:-.01em}.collab p{margin:2px 0 6px;font-size:14px;color:var(--ink2)}
+.collab .cmail{font-weight:800;font-size:15px;color:var(--butter-ink)}
+.cbtns{display:flex;gap:8px;flex-shrink:0}
+.cbtn{appearance:none;font-family:inherit;font-size:14px;font-weight:800;border-radius:999px;padding:11px 16px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);text-decoration:none;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.cbtn.dark{background:var(--ink);color:#fff}
+@media(max-width:560px){.collab{flex-direction:column;align-items:stretch;padding:16px}.cbtns .cbtn{flex:1;text-align:center}}
+.mm-h{font-size:12px;color:var(--mute);padding:8px 14px 4px;font-weight:600}
 </style></head><body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
-<div class="tr"><button type="button" class="pill mail" data-mail="jinspringg@gmail.com" title="협업·문의 메일"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="pm">jinspringg@gmail.com</span></button><a class="pill dark ig" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="igi" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg><span class="it">Instagram</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<div class="tr"><button type="button" class="pill dark mail" data-mail="jinspringg@gmail.com" title="협업·문의 메일"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="pm">협업 문의</span></button><a class="pill ig" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="igi" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg><span class="it">Instagram</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
 <main id="main"><article class="wrap art">
 <a class="back" href="../../">← 전체 목록</a>
 <p class="meta"><span class="cat">AI 영상</span><span>2026. 07. 10</span><span>10분</span></p>
@@ -235,7 +243,7 @@ button.pill{font-family:inherit;line-height:inherit;cursor:pointer;-webkit-tap-h
 </code></pre></div>
 <div class="code"><button type="button" class="copy" data-copy>복사</button><pre><code class="language-txt">소녀가 롱보드를 타고 바다가 내려다보이는 초록빛 언덕길을 빠른 속도로 내려간다. 카메라는 소녀의 움직임을 따라가며 함께 이동해서, 소녀는 화면 안에서 비슷한 위치를 유지한 채 계속 타는 동작을 이어간다. 머리카락과 옷자락은 강한 바람에 세차게 흩날린다. 소녀 뒤로는 언덕길과 풀, 저 멀리 바다와 파도가 끊김 없이 빠르게 흘러 지나간다. 역동적이고 시원한 속도감이 느껴지는 영상.
 </code></pre></div></div>
-<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 <button type="button" class="flink" data-mail="jinspringg@gmail.com">jinspringg@gmail.com</button></span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
 </article></main>
 <footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <button type="button" class="flink" data-mail="jinspringg@gmail.com">jinspringg@gmail.com</button></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
 <script>function dd(s){return Math.floor((new Date(s.indexOf("T")>0?s+":00+09:00":s+"T23:59:59+09:00")-new Date())/864e5)}
@@ -266,8 +274,8 @@ document.querySelectorAll("[data-until]").forEach(function(el){var u=el.getAttri
 function toast(t){var d=document.createElement("div");d.className="mtoast";d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.classList.add("out")},1400);setTimeout(function(){d.remove()},1800)}
 function fb(s){var t=document.createElement("textarea");t.value=s;t.setAttribute("readonly","");t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();t.setSelectionRange(0,s.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}t.remove();return ok}
 function copy(s){var done=function(){toast("이메일 주소를 복사했어요")},fail=function(){if(fb(s))done();else window.prompt("이메일 주소",s)};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(s).then(done,fail)}else fail()}
-document.addEventListener("click",function(e){var a=e.target.closest("[data-mail]");if(M&&!e.target.closest(".mmenu")){var same=a&&a===M._src;close();if(!a||same){if(same)e.preventDefault();return}}if(!a||e.target.closest(".mmenu"))return;e.preventDefault();var mail=a.getAttribute("data-mail");
-M=document.createElement("div");M.className="mmenu";M._src=a;M.innerHTML='<button type="button">이메일 복사</button><a href="mailto:'+mail+'">이메일 보내기</a>';document.body.appendChild(M);
+document.addEventListener("click",function(e){var cp=e.target.closest("[data-copy]");if(cp){copy(cp.getAttribute("data-copy"));return}var a=e.target.closest("[data-mail]");if(M&&!e.target.closest(".mmenu")){var same=a&&a===M._src;close();if(!a||same){if(same)e.preventDefault();return}}if(!a||e.target.closest(".mmenu"))return;e.preventDefault();var mail=a.getAttribute("data-mail");
+M=document.createElement("div");M.className="mmenu";M._src=a;M.innerHTML='<span class="mm-h">'+mail+'</span><button type="button">이메일 복사</button><a href="mailto:'+mail+'">이메일 보내기</a>';document.body.appendChild(M);
 var r=a.getBoundingClientRect(),w=M.offsetWidth;M.style.left=Math.max(10,Math.min(r.left+scrollX,innerWidth-w-10))+"px";M.style.top=(r.bottom+8+scrollY)+"px";
 M.querySelector("button").onclick=function(ev){ev.stopPropagation();copy(mail);close()};M.querySelector("a").onclick=function(ev){ev.stopPropagation();setTimeout(close,0)}});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")close()})})();

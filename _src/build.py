@@ -95,7 +95,7 @@ def page(title, body, pre, desc=""):
 <style>%(css)s</style></head><body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="top"><div class="wrap topin"><a class="logo" href="%(home)s">onji.lab</a>
-<div class="tr"><button type="button" class="pill mail" data-mail="%(mail)s" title="협업·문의 메일"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="pm">%(mail)s</span></button><a class="pill dark ig" href="%(ig)s" target="_blank" rel="noopener" aria-label="Instagram"><svg class="igi" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg><span class="it">Instagram</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<div class="tr"><button type="button" class="pill dark mail" data-mail="%(mail)s" title="협업·문의 메일"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="pm">협업 문의</span></button><a class="pill ig" href="%(ig)s" target="_blank" rel="noopener" aria-label="Instagram"><svg class="igi" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg><span class="it">Instagram</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
 <main id="main">%(body)s</main>
 <footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <button type="button" class="flink" data-mail="%(mail)s">%(mail)s</button></p></div><p><a href="%(ig)s" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
 <script>%(js)s</script></body></html>""" % dict(t=esc(title), d=esc(desc), p=pre, css=CSS, home=pre or "./", mail=MAIL, ig=IG, body=body, js=JS)
@@ -129,9 +129,9 @@ def build():
 <p class="meta"><span class="cat">%s</span><span>%s</span><span>%d분</span></p>
 <h1>%s</h1><p class="lead">%s</p>%s%s
 <div class="body">%s</div>
-<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 %s</span></p><a class="btn light" href="%s" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
+<div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 <button type="button" class="flink" data-mail="%s">%s</button></span></p><a class="btn light" href="%s" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
 </article>""" % (esc(g["category"]), fmt_date(g["date"]), g["min"], esc(g["title"]), esc(g.get("summary") or meta.get("summary", "")),
-               ('<p class="tools">사용 툴 · %s</p>' % esc(tools)) if tools else "", ph, bhtml, MAIL, IG)
+               ('<p class="tools">사용 툴 · %s</p>' % esc(tools)) if tools else "", ph, bhtml, MAIL, MAIL, IG)
         d = os.path.join(DIST, "guides", g["slug"])
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(page(g["title"] + " | onji.lab", art, "../../", g.get("summary", "")))
@@ -167,11 +167,12 @@ def build():
     home = """<section class="wrap hero">
 <h1>AI 활용팁 아카이브</h1>
 <div class="prof"><img src="assets/profile.jpg" alt="onji.lab 프로필" width="52" height="52"><div><b>onji.lab <span class="live"><i></i>%d TIPS</span></b><p>온지랩이 정리한 AI툴 사용법과 프롬프트를 모아뒀어요</p></div></div>
+<div class="collab"><div class="ctx"><b>브랜드 협업·광고 문의</b><p>AI 콘텐츠 제작, 협찬 제안은 메일로 편하게 보내주세요.</p><span class="cmail">%s</span></div><div class="cbtns"><button type="button" class="cbtn" data-copy="%s">이메일 복사</button><a class="cbtn dark" href="mailto:%s">메일 보내기</a></div></div>
 </section>
 <section class="wrap"><div class="tiles" role="group" aria-label="카테고리">%s</div>
 <div class="bar"><label class="search"><span class="sr">검색</span><input id="q" type="search" placeholder="툴 이름, 주제로 찾기"></label></div>
 <div id="grid" class="grid"></div><button type="button" id="more" class="btn more" hidden>더 보기</button><p id="empty" class="empty" hidden>찾는 팁이 없어요.</p></section>
-<script type="application/json" id="data">%s</script>""" % (len(items), tiles, json.dumps(items, ensure_ascii=False).replace("<", "\\u003c"))
+<script type="application/json" id="data">%s</script>""" % (len(items), MAIL, MAIL, MAIL, tiles, json.dumps(items, ensure_ascii=False).replace("<", "\\u003c"))
     open(os.path.join(DIST, "index.html"), "w", encoding="utf-8").write(page("onji.lab | AI 활용팁 아카이브", home, "", "온지랩이 정리한 AI툴 사용법과 프롬프트를 모아뒀어요"))
     print("built", len(items), "items,", sum(1 for g in guides if g["ready"]), "guides with body")
 

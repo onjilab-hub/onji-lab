@@ -102,3 +102,11 @@ figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
 button.pill{font-family:inherit;line-height:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .flink{appearance:none;border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
 .pill.mail,.flink,.mmenu a{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+.collab{margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--butter);border-radius:18px;padding:18px 20px}
+.collab b{display:block;font-size:17px;letter-spacing:-.01em}.collab p{margin:2px 0 6px;font-size:14px;color:var(--ink2)}
+.collab .cmail{font-weight:800;font-size:15px;color:var(--butter-ink)}
+.cbtns{display:flex;gap:8px;flex-shrink:0}
+.cbtn{appearance:none;font-family:inherit;font-size:14px;font-weight:800;border-radius:999px;padding:11px 16px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);text-decoration:none;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.cbtn.dark{background:var(--ink);color:#fff}
+@media(max-width:560px){.collab{flex-direction:column;align-items:stretch;padding:16px}.cbtns .cbtn{flex:1;text-align:center}}
+.mm-h{font-size:12px;color:var(--mute);padding:8px 14px 4px;font-weight:600}
