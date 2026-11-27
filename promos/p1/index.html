@@ -101,13 +101,20 @@ figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
 @media(max-width:400px){.pill.mail{padding:6px 9px;font-size:12px}.pill.mail svg{width:13px;height:13px}.pill.dark{padding:6px 9px;font-size:12px}}
 .pill{white-space:nowrap}.logo{white-space:nowrap}.pill.ig .igi{display:none}
 @media(max-width:380px){.pill.ig .it,.pill.ig .arr{display:none}.pill.ig .igi{display:block;width:16px;height:16px}.pill.ig{padding:6px 8px}}
+.mmenu{position:absolute;z-index:50;background:#fff;border:1px solid var(--hair);border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.14);padding:6px;display:flex;flex-direction:column;min-width:150px}
+.mmenu button,.mmenu a{appearance:none;border:0;background:none;font:inherit;text-align:left;text-decoration:none;cursor:pointer;padding:11px 14px;border-radius:10px;font-size:14px;font-weight:700;color:var(--ink)}
+.mmenu button:hover,.mmenu a:hover{background:#F3EFE4}
+.mtoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;z-index:60;transition:opacity .4s}.mtoast.out{opacity:0}
+button.pill{font-family:inherit;line-height:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.flink{appearance:none;border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+.pill.mail,.flink,.mmenu a{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
 </style></head><body>
 <a class="skip" href="#main">본문으로 건너뛰기</a>
 <header class="top"><div class="wrap topin"><a class="logo" href="../../">onji.lab</a>
-<div class="tr"><a class="pill mail" href="mailto:jinspringg@gmail.com" title="협업·문의 메일"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="pm">jinspringg@gmail.com</span></a><a class="pill dark ig" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="igi" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg><span class="it">Instagram</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
+<div class="tr"><button type="button" class="pill mail" data-mail="jinspringg@gmail.com" title="협업·문의 메일"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m3.5 6 6.5 5 6.5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span class="pm">jinspringg@gmail.com</span></button><a class="pill dark ig" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="igi" viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="10" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="14.2" cy="5.8" r="1" fill="currentColor"/></svg><span class="it">Instagram</span><svg class="arr" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a></div></div></header>
 <main id="main"><article class="wrap art"><a class="back" href="../../">← 전체 목록</a>
 <p class="meta"><span class="cat">할인소식</span><span>Dreamina</span><span><span class="dl">기한 미정 · 공식 사이트에서 확인</span></span></p><h1>Dreamina · 시댄스 2.5 첫달 409원</h1><p class="lead">드리미나 Seedance 2.5 요금제 첫 달 할인 이벤트. 기간은 공식 사이트에서 확인하세요.</p><div class="acts big"><a class="btn primary" href="https://dreamina.capcut.com/pricing/dreamina-seedance-price?utm_medium=social&amp;utm_source=instagram&amp;utm_campaign=onjilab&amp;utm_content=dreaminaonly29cents" target="_blank" rel="noopener">Dreamina 바로가기</a><a class="btn" href="../../guides/dreamina-canvas/">사용 가이드 보기</a></div></article></main>
-<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
+<footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <button type="button" class="flink" data-mail="jinspringg@gmail.com">jinspringg@gmail.com</button></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
 <script>function dd(s){return Math.floor((new Date(s.indexOf("T")>0?s+":00+09:00":s+"T23:59:59+09:00")-new Date())/864e5)}
 (function(){
 function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
@@ -132,4 +139,13 @@ render();
 })();
 
 document.querySelectorAll("[data-until]").forEach(function(el){var u=el.getAttribute("data-until"),d=dd(u);el.textContent=d<0?"마감된 혜택이에요":(el.textContent+" · "+(d===0?"D-DAY":"D-"+d));if(d<0)el.classList.add("end")});
+(function(){var M=null;function close(){if(M){M.remove();M=null}}
+function toast(t){var d=document.createElement("div");d.className="mtoast";d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.classList.add("out")},1400);setTimeout(function(){d.remove()},1800)}
+function fb(s){var t=document.createElement("textarea");t.value=s;t.setAttribute("readonly","");t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();t.setSelectionRange(0,s.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}t.remove();return ok}
+function copy(s){var done=function(){toast("이메일 주소를 복사했어요")},fail=function(){if(fb(s))done();else window.prompt("이메일 주소",s)};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(s).then(done,fail)}else fail()}
+document.addEventListener("click",function(e){var a=e.target.closest("[data-mail]");if(M&&!e.target.closest(".mmenu")){var same=a&&a===M._src;close();if(!a||same){if(same)e.preventDefault();return}}if(!a||e.target.closest(".mmenu"))return;e.preventDefault();var mail=a.getAttribute("data-mail");
+M=document.createElement("div");M.className="mmenu";M._src=a;M.innerHTML='<button type="button">이메일 복사</button><a href="mailto:'+mail+'">이메일 보내기</a>';document.body.appendChild(M);
+var r=a.getBoundingClientRect(),w=M.offsetWidth;M.style.left=Math.max(10,Math.min(r.left+scrollX,innerWidth-w-10))+"px";M.style.top=(r.bottom+8+scrollY)+"px";
+M.querySelector("button").onclick=function(ev){ev.stopPropagation();copy(mail);close()};M.querySelector("a").onclick=function(ev){ev.stopPropagation();setTimeout(close,0)}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")close()})})();
 </script></body></html>

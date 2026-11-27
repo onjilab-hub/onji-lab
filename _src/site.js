@@ -22,3 +22,12 @@ render();
 })();
 
 document.querySelectorAll("[data-until]").forEach(function(el){var u=el.getAttribute("data-until"),d=dd(u);el.textContent=d<0?"마감된 혜택이에요":(el.textContent+" · "+(d===0?"D-DAY":"D-"+d));if(d<0)el.classList.add("end")});
+(function(){var M=null;function close(){if(M){M.remove();M=null}}
+function toast(t){var d=document.createElement("div");d.className="mtoast";d.textContent=t;document.body.appendChild(d);setTimeout(function(){d.classList.add("out")},1400);setTimeout(function(){d.remove()},1800)}
+function fb(s){var t=document.createElement("textarea");t.value=s;t.setAttribute("readonly","");t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();t.setSelectionRange(0,s.length);var ok=false;try{ok=document.execCommand("copy")}catch(e){}t.remove();return ok}
+function copy(s){var done=function(){toast("이메일 주소를 복사했어요")},fail=function(){if(fb(s))done();else window.prompt("이메일 주소",s)};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(s).then(done,fail)}else fail()}
+document.addEventListener("click",function(e){var a=e.target.closest("[data-mail]");if(M&&!e.target.closest(".mmenu")){var same=a&&a===M._src;close();if(!a||same){if(same)e.preventDefault();return}}if(!a||e.target.closest(".mmenu"))return;e.preventDefault();var mail=a.getAttribute("data-mail");
+M=document.createElement("div");M.className="mmenu";M._src=a;M.innerHTML='<button type="button">이메일 복사</button><a href="mailto:'+mail+'">이메일 보내기</a>';document.body.appendChild(M);
+var r=a.getBoundingClientRect(),w=M.offsetWidth;M.style.left=Math.max(10,Math.min(r.left+scrollX,innerWidth-w-10))+"px";M.style.top=(r.bottom+8+scrollY)+"px";
+M.querySelector("button").onclick=function(ev){ev.stopPropagation();copy(mail);close()};M.querySelector("a").onclick=function(ev){ev.stopPropagation();setTimeout(close,0)}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")close()})})();

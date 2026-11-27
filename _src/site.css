@@ -95,3 +95,10 @@ figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
 @media(max-width:400px){.pill.mail{padding:6px 9px;font-size:12px}.pill.mail svg{width:13px;height:13px}.pill.dark{padding:6px 9px;font-size:12px}}
 .pill{white-space:nowrap}.logo{white-space:nowrap}.pill.ig .igi{display:none}
 @media(max-width:380px){.pill.ig .it,.pill.ig .arr{display:none}.pill.ig .igi{display:block;width:16px;height:16px}.pill.ig{padding:6px 8px}}
+.mmenu{position:absolute;z-index:50;background:#fff;border:1px solid var(--hair);border-radius:14px;box-shadow:0 12px 32px rgba(0,0,0,.14);padding:6px;display:flex;flex-direction:column;min-width:150px}
+.mmenu button,.mmenu a{appearance:none;border:0;background:none;font:inherit;text-align:left;text-decoration:none;cursor:pointer;padding:11px 14px;border-radius:10px;font-size:14px;font-weight:700;color:var(--ink)}
+.mmenu button:hover,.mmenu a:hover{background:#F3EFE4}
+.mtoast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;z-index:60;transition:opacity .4s}.mtoast.out{opacity:0}
+button.pill{font-family:inherit;line-height:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.flink{appearance:none;border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+.pill.mail,.flink,.mmenu a{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
