@@ -36,5 +36,45 @@
     "date": "2026-11-27",
     "label": "Higgsfield 75%",
     "thumb": "assets/promo/higgsfield-bf.jpg"
+  },
+  {
+    "id": "tripo",
+    "brand": "Tripo",
+    "title": "Pro 첫 달 60% 할인 + 500 크레딧",
+    "date": "2026-07-02",
+    "until": "",
+    "codes": [
+      [
+        "Pro 플랜 할인코드",
+        "TRIPOCREW"
+      ],
+      [
+        "가입 초대코드",
+        "tACPnC"
+      ]
+    ],
+    "link": "https://studio.tripo3d.ai/?invite_code=tACPnC",
+    "note": "초대 링크로 가입하고 초대코드를 넣으면 500 크레딧을 바로 받아요. Pro 플랜 결제 때 할인코드를 넣으면 첫 달 60% 할인이에요.",
+    "guide": "tripo-3d-character",
+    "label": "Tripo",
+    "thumb": "assets/g/tripo-3d-character/thumb.jpg"
+  },
+  {
+    "id": "accio",
+    "brand": "Accio Work",
+    "title": "Pro 첫 달 1달러",
+    "date": "2026-09-29",
+    "until": "",
+    "codes": [
+      [
+        "전용 코드",
+        "STARTGROUND"
+      ]
+    ],
+    "link": "https://www.accio.com/work",
+    "note": "Accio Work Pro 플랜 결제 때 전용 코드를 넣으면 첫 달을 1달러에 쓸 수 있어요.",
+    "guide": "accio-work",
+    "label": "Accio",
+    "thumb": "assets/g/accio-work/thumb.jpg"
   }
 ]
