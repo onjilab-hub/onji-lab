@@ -115,3 +115,6 @@ button.pill{font-family:inherit;line-height:inherit;cursor:pointer;-webkit-tap-h
 .cline .tag{font-size:12px;font-weight:800;background:#111;color:#F2E4BC;padding:3px 8px;border-radius:6px;line-height:1.5}
 .cline b{color:#111}
 .ib{appearance:none;display:grid;place-items:center;width:30px;height:30px;padding:0;border:1px solid #D9D4C7;border-radius:8px;background:#fff;color:#111;cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}.ib:hover{border-color:#111}
+.cline{display:flex;flex-wrap:nowrap;white-space:nowrap;margin:8px 0 0 64px}
+@media(max-width:560px){.cline{margin:14px 0 0;font-size:14.5px}}
+@media(max-width:360px){.cline{font-size:13.5px;gap:6px}.cline .tag{font-size:11px;padding:2px 6px}.ib{width:28px;height:28px}}
