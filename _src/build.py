@@ -166,12 +166,13 @@ def build():
         tiles += '<button type="button" class="tile" data-cat="%s" aria-pressed="false">%s <span>%d</span></button>' % (esc(c), esc(c), cnt[c])
     home = """<section class="wrap hero">
 <h1>AI 활용팁 아카이브</h1>
-<div class="prof"><img src="assets/profile.jpg" alt="onji.lab 프로필" width="52" height="52"><div><b>onji.lab <span class="live"><i></i>%d TIPS</span></b><p>온지랩이 정리한 AI툴 사용법과 프롬프트를 모아뒀어요</p></div></div><div class="cline"><span class="tag">협업문의</span><b>%s</b><button type="button" class="ib" data-copy="%s" aria-label="이메일 복사" title="이메일 복사"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M13 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></button><a class="ib" href="mailto:%s" aria-label="메일 보내기" title="메일 보내기"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M3 10 17 3l-4 14-3-6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></a></div>
+<p class="lead2">온지랩이 정리한 AI툴 사용법과 프롬프트를 모아뒀어요</p>
+<div class="prof"><img src="assets/profile.jpg" alt="onji.lab 프로필" width="52" height="52"><div><b>onji.lab <span class="live"><i></i>%d TIPS</span></b><div class="pl"><span>협업문의</span><button type="button" data-mail="%s">%s</button></div></div></div>
 </section>
 <section class="wrap"><div class="tiles" role="group" aria-label="카테고리">%s</div>
 <div class="bar"><label class="search"><span class="sr">검색</span><input id="q" type="search" placeholder="툴 이름, 주제로 찾기"></label></div>
 <div id="grid" class="grid"></div><button type="button" id="more" class="btn more" hidden>더 보기</button><p id="empty" class="empty" hidden>찾는 팁이 없어요.</p></section>
-<script type="application/json" id="data">%s</script>""" % (len(items), MAIL, MAIL, MAIL, tiles, json.dumps(items, ensure_ascii=False).replace("<", "\\u003c"))
+<script type="application/json" id="data">%s</script>""" % (len(items), MAIL, MAIL, tiles, json.dumps(items, ensure_ascii=False).replace("<", "\\u003c"))
     open(os.path.join(DIST, "index.html"), "w", encoding="utf-8").write(page("onji.lab | AI 활용팁 아카이브", home, "", "온지랩이 정리한 AI툴 사용법과 프롬프트를 모아뒀어요"))
     print("built", len(items), "items,", sum(1 for g in guides if g["ready"]), "guides with body")
 
