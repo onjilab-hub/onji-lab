@@ -1,0 +1,382 @@
+[
+ {
+  "slug": "strength-report",
+  "title": "강약점 리포트 프롬프트",
+  "date": "2026-11-17",
+  "category": "자동화",
+  "summary": "",
+  "ready": false,
+  "label": "강약점 리포트",
+  "notion": "41b0ed7f73508114bab3ca30bf899f6c"
+ },
+ {
+  "slug": "dreamina-canvas",
+  "title": "Dreamina 캔버스로 AI 영상 만들기",
+  "date": "2026-11-12",
+  "category": "AI 영상",
+  "summary": "인물·배경을 캔버스에 올려두고 Seedance 2.5로 대사 있는 30초 영상을 뽑은 뒤, 고칠 구간만 다시 만드는 순서.",
+  "ready": true,
+  "label": "Dreamina 캔버스",
+  "notion": "4160ed7f7350819880fccfb60e2e4ae6"
+ },
+ {
+  "slug": "domoai-short-drama",
+  "title": "DomoAI | 사이트 하나로 AI 숏드라마 만들기",
+  "date": "2026-11-09",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "DomoAI",
+  "notion": "4130ed7f735081e49e18f35c179715b3"
+ },
+ {
+  "slug": "higgsfield-mangaka",
+  "title": "사진 1장 + 스토리 1줄로 나만의 웹툰 만들기 | Higgsfield Mangaka",
+  "date": "2026-11-05",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "Higgsfield Mangaka",
+  "notion": "40f0ed7f7350817eafe8fda1f90bca9c"
+ },
+ {
+  "slug": "claude-higgsfield-effects",
+  "title": "Claude × Higgsfield | 명령어로 영상 효과 넣기",
+  "date": "2026-10-30",
+  "category": "자동화",
+  "summary": "",
+  "ready": false,
+  "label": "Claude × Higgsfield",
+  "notion": "4090ed7f735081d8a323f2241c7125bd"
+ },
+ {
+  "slug": "ai-film",
+  "title": "AI Film | 주제 한 줄로 AI 숏드라마 만들기",
+  "date": "2026-10-28",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "AI Film",
+  "notion": "4070ed7f735081d9b5a5f3f02fa6a11b"
+ },
+ {
+  "slug": "higgsfield-content-factory",
+  "title": "힉스필드 콘텐츠 팩토리 | 주제 한 줄로 숏폼 만들기",
+  "date": "2026-10-24",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "콘텐츠 팩토리",
+  "notion": "4030ed7f7350817a86d5d27bd6639a7b"
+ },
+ {
+  "slug": "neon-pollo-recast",
+  "title": "neon AI영상 만드는 법 | 캐릭터 시트 + Pollo Recast",
+  "date": "2026-10-20",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "Pollo Recast",
+  "notion": "3ff0ed7f735081e18837eb5d08da2d4e"
+ },
+ {
+  "slug": "gpt-astra-reels",
+  "title": "GPT 아스트라로 릴스 만드는 작업지시서",
+  "date": "2026-10-13",
+  "category": "자동화",
+  "summary": "",
+  "ready": false,
+  "label": "GPT 아스트라",
+  "notion": "3f80ed7f7350812d8234f7f58e31a057"
+ },
+ {
+  "slug": "accio-work",
+  "title": "Accio Work 활용 가이드",
+  "date": "2026-09-29",
+  "category": "이커머스",
+  "summary": "",
+  "ready": false,
+  "label": "Accio Work",
+  "notion": "3ea0ed7f73508093b5bffed893c5a66a"
+ },
+ {
+  "slug": "newtake",
+  "title": "NewTake로 AI 영상 만들고 원하는 구간만 수정하기",
+  "date": "2026-09-10",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "NewTake",
+  "notion": "3d70ed7f7350800c9fa9d9438e75065c"
+ },
+ {
+  "slug": "talking-character",
+  "title": "캐릭터가 말하는 영상 만드는 법",
+  "date": "2026-09-04",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "말하는 캐릭터",
+  "notion": "3d10ed7f735080d09698c745b72fc376"
+ },
+ {
+  "slug": "fish-audio-voice-clone",
+  "title": "Fish Audio로 내 목소리 복제하는 법",
+  "date": "2026-08-28",
+  "category": "음성",
+  "summary": "",
+  "ready": false,
+  "label": "Fish Audio",
+  "notion": "3ca0ed7f735080d4be39f6b3daff28b3"
+ },
+ {
+  "slug": "pollo-ai-reference",
+  "title": "Pollo AI 레퍼런스 기반 영상 생성 가이드",
+  "date": "2026-08-23",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "Pollo AI",
+  "notion": "3c50ed7f73508097b3f2c23ca613183c"
+ },
+ {
+  "slug": "hand-drawn-character",
+  "title": "나만의 손그림 캐릭터 만들기",
+  "date": "2026-08-17",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "손그림 캐릭터",
+  "notion": "3bf0ed7f735080528c44d7a45b81a2a1"
+ },
+ {
+  "slug": "verdent",
+  "title": "Verdent 사용법 가이드",
+  "date": "2026-08-05",
+  "category": "자동화",
+  "summary": "",
+  "ready": false,
+  "label": "Verdent",
+  "notion": "3b30ed7f7350803b8f61db2817c39bca"
+ },
+ {
+  "slug": "manus-reels-machine",
+  "title": "마누스로 릴스자판기 만드는 법",
+  "date": "2026-07-31",
+  "category": "자동화",
+  "summary": "",
+  "ready": false,
+  "label": "Manus 릴스자판기",
+  "notion": "3ae0ed7f735080c4a6fafaeb5a3dbbc1"
+ },
+ {
+  "slug": "ai-model-video",
+  "title": "AI모델 영상 만드는 법 (2단계)",
+  "date": "2026-07-28",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "AI 모델 영상",
+  "notion": "3ab0ed7f735080b5b8cdc7ffaef82069"
+ },
+ {
+  "slug": "higgsfield-features",
+  "title": "힉스필드 유용한 기능.zip",
+  "date": "2026-07-22",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "Higgsfield 기능.zip",
+  "notion": "3a50ed7f73508026ad8de1f57f2fe0f2"
+ },
+ {
+  "slug": "character-dance",
+  "title": "캐릭터 춤 영상 만들기",
+  "date": "2026-07-18",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "캐릭터 춤",
+  "notion": "3a10ed7f7350802c8e70edd891fdaef6"
+ },
+ {
+  "slug": "ai-video-formats",
+  "title": "AI 영상 포맷 모음.zip",
+  "date": "2026-07-10",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "영상 포맷.zip",
+  "notion": "3990ed7f7350800a8e1fc4874a48d1fd"
+ },
+ {
+  "slug": "fairytale-photo",
+  "title": "내 사진을 동화 속 장면처럼 만드는 법",
+  "date": "2026-07-07",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "동화 속 장면",
+  "notion": "3960ed7f7350805b9a8deab21e9526bd"
+ },
+ {
+  "slug": "tripo-3d-character",
+  "title": "Tripo로 3D 캐릭터 만드는 법",
+  "date": "2026-07-02",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "Tripo 3D",
+  "notion": "3910ed7f735080b2bb77d1f6e5c41224"
+ },
+ {
+  "slug": "lovart",
+  "title": "Lovart 사용법 가이드",
+  "date": "2026-07-01",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "Lovart",
+  "notion": "3900ed7f735080dfb90ae6744701ef48"
+ },
+ {
+  "slug": "brand-video",
+  "title": "브랜드 영상 만들기",
+  "date": "2026-06-23",
+  "category": "이커머스",
+  "summary": "",
+  "ready": false,
+  "label": "브랜드 영상",
+  "notion": "3880ed7f73508031803dde0dd8048125"
+ },
+ {
+  "slug": "studio-product-shot",
+  "title": "스튜디오 제품컷 만들기",
+  "date": "2026-06-16",
+  "category": "이커머스",
+  "summary": "",
+  "ready": false,
+  "label": "스튜디오 제품컷",
+  "notion": "3810ed7f735080cab31ac281e74f15a2"
+ },
+ {
+  "slug": "3d-typography",
+  "title": "3D 타이포그래피 GPT 프롬프트 모음",
+  "date": "2026-06-09",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "3D 타이포그래피",
+  "notion": "37a0ed7f7350803aa3eecab2d7a1db11"
+ },
+ {
+  "slug": "earth-zoom",
+  "title": "지구 Zoom Out & In 영상 프롬프트",
+  "date": "2026-06-07",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "Earth Zoom",
+  "notion": "3780ed7f735080b0be8dd6e0ede0d37d"
+ },
+ {
+  "slug": "space-transition",
+  "title": "AI 공간 전환 영상 프롬프트 모음",
+  "date": "2026-06-01",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "공간 전환",
+  "notion": "3720ed7f735080d69b00f5523753e36c"
+ },
+ {
+  "slug": "profile-image-gpt",
+  "title": "프로필 이미지 GPT 프롬프트.zip",
+  "date": "2026-05-23",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "프로필 이미지.zip",
+  "notion": "3690ed7f735080c799dff488b46c423f"
+ },
+ {
+  "slug": "handwriting-gpt",
+  "title": "감성 손글씨 GPT 프롬프트",
+  "date": "2026-04-27",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "감성 손글씨",
+  "notion": "34f0ed7f7350803f8227f79178fe1fb4"
+ },
+ {
+  "slug": "meshy-3d",
+  "title": "Meshy로 3D 만들기",
+  "date": "2026-04-22",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "Meshy 3D",
+  "notion": "34a0ed7f735080ec8f24ea4bb6460878"
+ },
+ {
+  "slug": "ai-voice-tools",
+  "title": "요즘 유행하는 AI 목소리 툴 모음",
+  "date": "2026-04-13",
+  "category": "음성",
+  "summary": "",
+  "ready": false,
+  "label": "AI 목소리 툴",
+  "notion": "3410ed7f7350800d88ddef5a7b3b3f33"
+ },
+ {
+  "slug": "gpt-setting-template",
+  "title": "2026 GPT 프롬프트 세팅 템플릿",
+  "date": "2026-03-26",
+  "category": "자동화",
+  "summary": "",
+  "ready": false,
+  "label": "GPT 세팅 템플릿",
+  "notion": "32f0ed7f7350808eb3fef169366089db"
+ },
+ {
+  "slug": "cheating-day",
+  "title": "치팅데이에 일어나는 일 (반사스틱)",
+  "date": "2026-03-19",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "반사스틱",
+  "notion": "3280ed7f735080588928e049418e33b3"
+ },
+ {
+  "slug": "motion-graphics",
+  "title": "모션그래픽 만드는 프롬프트",
+  "date": "2026-03-19",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "모션그래픽",
+  "notion": "3280ed7f735080e284d0dabe156722c9"
+ },
+ {
+  "slug": "ai-influencer-skin",
+  "title": "AI 인플루언서 피부 디테일 프롬프트",
+  "date": "2026-03-16",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "AI 인플루언서 피부",
+  "notion": "3250ed7f735080d6ae7dfd95842715c6"
+ },
+ {
+  "slug": "ai-influencer-image",
+  "title": "AI 인플루언서 이미지 프롬프트",
+  "date": "2026-03-16",
+  "category": "AI 이미지",
+  "summary": "",
+  "ready": false,
+  "label": "AI 인플루언서",
+  "notion": "3250ed7f735080538813d39ad6f9cb82"
+ }
+]

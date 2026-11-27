@@ -1,0 +1,67 @@
+[
+ {
+  "id": "class101",
+  "brand": "클래스101",
+  "title": "구독 할인링크",
+  "date": "2026-11-26",
+  "link": "https://abr.ge/xwqolxi",
+  "note": "클래스101 구독을 할인된 가격으로 시작할 수 있는 링크예요.",
+  "label": "CLASS101",
+  "pin": 1,
+  "direct": 1,
+  "thumb": "assets/promo/class101.jpg"
+ },
+ {
+  "id": "p1",
+  "brand": "Dreamina",
+  "title": "시댄스 2.5 첫달 409원",
+  "until": "",
+  "code": "",
+  "link": "https://dreamina.capcut.com/pricing/dreamina-seedance-price?utm_medium=social&utm_source=instagram&utm_campaign=onjilab&utm_content=dreaminaonly29cents",
+  "note": "드리미나 Seedance 2.5 요금제 첫 달 할인 이벤트. 기간은 공식 사이트에서 확인하세요.",
+  "guide": "dreamina-canvas",
+  "date": "2026-11-12",
+  "label": "Dreamina 409원",
+  "thumb": "assets/promo/p1.jpg"
+ },
+ {
+  "id": "tripo",
+  "brand": "Tripo",
+  "title": "Pro 첫 달 60% 할인 + 500 크레딧",
+  "date": "2026-11-26",
+  "until": "",
+  "codes": [
+   [
+    "Pro 플랜 할인코드",
+    "TRIPOCREW"
+   ],
+   [
+    "가입 초대코드",
+    "tACPnC"
+   ]
+  ],
+  "link": "https://studio.tripo3d.ai/?invite_code=tACPnC",
+  "note": "초대 링크로 가입하고 초대코드를 넣으면 500 크레딧을 바로 받아요. Pro 플랜 결제 때 할인코드를 넣으면 첫 달 60% 할인이에요.",
+  "guide": "tripo-3d-character",
+  "label": "Tripo",
+  "thumb": "assets/g/tripo-3d-character/thumb.jpg"
+ },
+ {
+  "id": "accio",
+  "brand": "Accio Work",
+  "title": "Pro 첫 달 1달러",
+  "date": "2026-11-26",
+  "until": "",
+  "codes": [
+   [
+    "전용 코드",
+    "STARTGROUND"
+   ]
+  ],
+  "link": "https://www.accio.com/work",
+  "note": "Accio Work Pro 플랜 결제 때 전용 코드를 넣으면 첫 달을 1달러에 쓸 수 있어요.",
+  "guide": "accio-work",
+  "label": "Accio",
+  "thumb": "assets/g/accio-work/thumb.jpg"
+ }
+]
