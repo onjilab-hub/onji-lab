@@ -1,7 +1,7 @@
 #!/bin/bash
 # usage: dl.sh SLUG QUERYSTRING_WITHOUT_SIG  then lines "NN OBJ/NAME SIG" on stdin
 slug=$1; Q=$2; B='https://prod-files-secure.s3.us-west-2.amazonaws.com/272d1c40-1203-44d0-8700-c788d96d1def'
-d=/home/claude/archive/assets/g/$slug; mkdir -p $d
+d="$(cd "$(dirname "$0")/.." && pwd)/assets/g/$slug"; mkdir -p $d
 while read n path sig; do [ -z "$n" ] && continue
   curl -s -o "$d/$n.src" --max-time 40 "$B/$path?$Q&X-Amz-Signature=$sig&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" -w "$n %{http_code} %{size_download}\n"
 done

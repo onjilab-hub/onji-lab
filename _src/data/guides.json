@@ -1,5 +1,15 @@
 [
  {
+  "slug": "higgsfield-magi2",
+  "title": "Claude × Higgsfield | Magi 2로 AI 캐릭터 영상 만들기",
+  "date": "2026-11-27",
+  "category": "AI 영상",
+  "summary": "",
+  "ready": false,
+  "label": "Magi 2",
+  "notion": "4250ed7f735081ff8cf0dc1b7d0d884a"
+ },
+ {
   "slug": "strength-report",
   "title": "강약점 리포트 프롬프트",
   "date": "2026-11-17",
