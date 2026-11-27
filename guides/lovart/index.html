@@ -174,7 +174,7 @@ figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
 <div class="endcta"><img src="../../assets/profile.jpg" alt="" width="52" height="52"><p><b>더 많은 AI 활용팁은 인스타그램에서 먼저 올라와요.</b><br><span>협업 문의 jinspringg@gmail.com</span></p><a class="btn light" href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">@onji.lab 팔로우</a></div>
 </article></main>
 <footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
-<script>function dd(s){return Math.floor((new Date(s+"T23:59:59+09:00")-new Date())/864e5)}
+<script>function dd(s){return Math.floor((new Date(s.indexOf("T")>0?s+":00+09:00":s+"T23:59:59+09:00")-new Date())/864e5)}
 (function(){
 function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
 function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}

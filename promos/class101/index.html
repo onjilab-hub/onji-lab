@@ -108,7 +108,7 @@ figcaption{font-size:13.5px;color:var(--mute);margin-top:6px;text-align:center}
 <main id="main"><article class="wrap art"><a class="back" href="../../">← 전체 목록</a>
 <p class="meta"><span class="cat">할인소식</span><span>클래스101</span><span>상시</span></p><h1>클래스101 · 구독 할인링크</h1><p class="lead">클래스101 구독을 할인된 가격으로 시작할 수 있는 링크예요.</p><div class="acts big"><a class="btn primary" href="https://abr.ge/xwqolxi" target="_blank" rel="noopener">클래스101 바로가기</a></div></article></main>
 <footer class="foot"><div class="wrap fin"><div><p class="fl">onji.lab · AI 활용팁 아카이브</p><p>협업·문의 <a href="mailto:jinspringg@gmail.com">jinspringg@gmail.com</a></p></div><p><a href="https://www.instagram.com/onji.lab/" target="_blank" rel="noopener">Instagram @onji.lab</a> · © 2026</p></div></footer>
-<script>function dd(s){return Math.floor((new Date(s+"T23:59:59+09:00")-new Date())/864e5)}
+<script>function dd(s){return Math.floor((new Date(s.indexOf("T")>0?s+":00+09:00":s+"T23:59:59+09:00")-new Date())/864e5)}
 (function(){
 function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
 function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}

@@ -23,5 +23,18 @@
     "date": "2026-11-12",
     "label": "Dreamina 409원",
     "thumb": "assets/promo/p1.jpg"
+  },
+  {
+    "id": "higgsfield-bf",
+    "brand": "Higgsfield",
+    "title": "블랙프라이데이 최대 75% 할인",
+    "until": "2026-11-28T09:00",
+    "code": "",
+    "link": "https://higgsfield.ai/s/higgsfield-black-friday-magi-2-inside-claude-onji-lab-CCnMnz",
+    "note": "힉스필드 블랙프라이데이 할인 링크예요. 요금제별 할인율은 링크에서 확인하세요.",
+    "guide": "higgsfield-magi2",
+    "date": "2026-11-27",
+    "label": "Higgsfield 75%",
+    "thumb": "assets/promo/higgsfield-bf.jpg"
   }
 ]

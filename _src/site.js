@@ -1,4 +1,4 @@
-function dd(s){return Math.floor((new Date(s+"T23:59:59+09:00")-new Date())/864e5)}
+function dd(s){return Math.floor((new Date(s.indexOf("T")>0?s+":00+09:00":s+"T23:59:59+09:00")-new Date())/864e5)}
 (function(){
 function toast(t){var e=document.createElement("div");e.className="toast";e.textContent=t;document.body.appendChild(e);setTimeout(function(){e.remove()},1600)}
 function copy(text){if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){toast("복사했어요")},function(){toast("길게 눌러 직접 복사해주세요")})}else toast("길게 눌러 직접 복사해주세요")}

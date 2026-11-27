@@ -20,7 +20,11 @@ def esc(s):
     return html.escape(str(s or ""), quote=True)
 
 def fmt_date(d):
-    return d.replace("-", ". ") if d else ""
+    if not d: return ""
+    if "T" in d:
+        a, t = d.split("T", 1)
+        return a.replace("-", ". ") + " " + t
+    return d.replace("-", ". ")
 
 # ---------- 본문 변환 ----------
 def parse_md(path):
